@@ -1,0 +1,121 @@
+
+.ratingblock{
+    display: flex;
+    width: 100%;
+}
+.starslist{
+    padding: 0.25rem 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--light);
+    margin: 1rem 0rem;
+    display:inline-block;
+}
+.stars {
+    padding: 0.25rem 1rem;
+    background-color: var(--light);
+    margin: 1rem 0rem;
+    display:inline-block;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+}
+.starslist i,
+.stars i{
+    font-size: 1rem;
+    color: var(--theme);
+ }
+ .ratingline{
+     padding: 1rem;
+ }
+.ratingline textarea{
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--light);
+}
+.ratingline label{
+    width: 100%;
+    padding: 1rem;
+}
+.ratingformblock{
+    display:flex; justify-content: center; align-items: center; font-size: 1.5rem; background-color:#fff; width: 100%; 
+    box-shadow: var(--box-shadow);margin-right:0.5rem ; padding:3rem;
+    border-radius: 1rem;
+}
+.ratingstar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.rating{
+    display: flex;
+    justify-content: space-between;
+  
+    text-align: center;
+    width: 100%;
+}
+.scorerate{
+    display:flex; align-items: center; justify-content: center; font-size: 15px;
+}
+.ratingscoreblock{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8rem;
+    background-color:#fff; 
+    width: 100%; 
+    margin-left:0.5rem ;
+    box-shadow: var(--box-shadow);
+    border-radius: 1rem;
+}
+.ratingscoreblock span{
+    font-size: 1rem;
+    font-weight: 800;
+    color: #ddd;
+}
+.scroreblock{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 8rem;
+}
+.ratingscoreblock div h5{
+    color:var(--theme);
+}
+@media(max-width:1000px){
+    .ratingformblock{
+        padding: 1rem 0rem;
+        margin: 0px;
+    }
+    .ratingscoreblock{margin: 0rem;}
+    .ratingscoreblock div{
+        font-size: 5rem;
+        margin: 0px;
+    }
+    .ratingline textarea{
+        padding: 0.5rem;
+    }
+    .ratingblock{
+        background-color: #fff;
+        border-radius: 10px;
+    }
+}
+
+@media(max-width:600px){
+    .rating{
+        flex-direction: column;
+        padding: 1rem;
+        border-radius: 1rem;
+        background-color: #fff;
+    }
+    .ratingscoreblock{margin: 0rem;}
+    .ratingscoreblock,
+    .ratingformblock{
+        padding: 5rem 0rem;
+    }
+    .ratingblock{
+        background-color: #eee;
+        padding: 0rem;
+    }
+    .ratingline textarea{
+        padding: 0.5rem;
+    }
+}

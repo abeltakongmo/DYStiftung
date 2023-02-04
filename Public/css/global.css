@@ -1,0 +1,78 @@
+:root {
+    /*--green: linear-gradient(45deg ,green 20% , rgb(53, 85, 60) 80%);*/
+    --sombre:  rgb(85, 87, 200);
+    --secondtheme:   rgb(198, 227, 240);
+    --theme:  rgb(91, 87, 134);
+    --link:  rgb(192, 192, 206);
+    --light:rgba(0, 0, 0, 0.01);
+    --titre: #888;
+    --soustitre: rgb(37, 98, 116);
+    /*--box-shadow: 0.2rem .2rem 0.3rem rgba(0,0,0,.3);*/
+    --box-shadow:0.2rem 0.2rem 0.8rem rgba(0.1,0.1,0.1,.05);
+    --shadow:0.1rem 0.1rem 0.2rem rgba(0.1,0.1,0.1,.1);
+    --sky:linear-gradient(155deg ,rgb(239, 245, 243) 30% , rgb(233, 234, 252) 75%);
+    --background: rgba(0, 0, 0, 0.4);
+  }
+  .ihv{
+    background-color:var(--light);
+    border-radius: 5px;
+    border: 1px solid #eee;
+    padding: .5rem 1rem;
+  }
+  .ihv:hover {
+    transition: all 1s;
+    box-shadow: var(--shadow);
+  }
+
+  h5{
+    color: var(--titre);
+  }
+  h6{
+    color: red;
+    font-size: 15px;
+  }
+  .p{
+    letter-spacing: 1px;
+    line-height: 2rem;
+  }
+  p a{
+    text-decoration: none;
+    color: var(--link);
+  }
+
+  .bt{
+    background-color: var(--theme);
+    color: #fff;
+  }
+  .btn-first{
+    padding: 0.5rem 2rem;
+    color: #fff;
+    background-color: var(--theme);
+    box-shadow: var(--shadow);
+    border: none;
+  }
+  .btn-second{
+    padding: 0.5rem 2rem;
+    color: #fff;
+    background-color: var(--secondtheme);
+    box-shadow: var(--shadow);
+    border: none;
+  }
+  .btn-thrid{
+    padding: 0.5rem 2rem;
+    color: #fff;
+    background-color: red;
+    box-shadow: var(--shadow);
+    border: none;
+  }
+
+  .btn-first:hover,
+  .btn-second:hover,
+  .btn-thrid:hover{
+    box-shadow: none;
+    background-color: var(--sombre);
+    color: #fff;
+  }
+  .border-b{
+    border-bottom: 1px solid #ddd;
+  }

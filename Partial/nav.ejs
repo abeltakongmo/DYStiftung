@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <title>DY-Foundation</title>
+</head>
+<body>
+    <header>
+        <div class="nav-infos container fade-up">
+            <div class="nav-infos-contact">
+                <span>Denise Yomi Tel: +49 177 265 9940</span>
+            </div>
+            <div class="nav-infos-message">
+                <span>Refugees and Migrants</span>
+            </div>
+            <div class="nav-infos-actions">
+                <button class="nav-infos-spenden" onclick="openspendenModal()">spenden</button>
+            </div>
+        </div>
+        
+        <div class="nav-wrapper container">
+            <a href="" class="logo">DYStiftung</a>
+
+            <input type="checkbox" id="menu-bar">
+            <label for="menu-bar">
+                <i class="fa-solid fa-bars menu-icon"></i>
+            </label>
+
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#stiftung">Stiftung</a></li>
+                    <li><a href="#stipendien">stipendien</a></li>
+                    <li><a href="#beratung">Beratung <i class="fa-solid fa-caret-down link-icon"></i></a>
+                        <ul>
+                            <li><a href="#beratung">sozial</a></li>
+                            <li><a href="#beratung">integration</a></li>
+                            <li><a href="#beratung">Asyl-und Migration</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#aktuelles">aktuelles <i class="fa-solid fa-caret-down link-icon"></i></a>
+                        <ul>
+                            <li><a href="#aktuelles">Veranstaltungen</a></li>
+                            <li><a href="#aktuelles">Projekte</a></li>
+                        </ul>
+                    </li>
+                    <!--<li><a href="#">Spenden</a></li>-->
+                    <li><a href="#Kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <script>
+        async function postData(url = '', data = {}) {
+          // Default options are marked with *
+          const response = await fetch(url, {
+              method: 'POST', // *GET, POST, PUT, DELETE, etc.
+              mode: 'cors', // no-cors, *cors, same-origin
+              cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+              credentials: 'same-origin', // include, *same-origin, omit
+              headers: {
+                  'Content-Type': 'application/json', 
+                  // 'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              redirect: 'follow', // manual, *follow, error
+              referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+              body: JSON.stringify(data) // body data type must match "Content-Type" header
+          })
+          return response.json(); // parses JSON response into native JavaScript objects
+      }
+
+      async function GetData(url) {
+      // Default options are marked with *
+          const response = await fetch(url)
+          const data = await response.json()
+          return data
+              // parses JSON response into native JavaScript objects
+      }
+
+    </script>
+</body>
+</html>

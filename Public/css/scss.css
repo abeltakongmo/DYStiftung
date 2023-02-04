@@ -1,0 +1,48 @@
+.dj{
+  display: flex;
+  justify-content: center;
+}
+.da{
+  display: flex;
+  align-items: center;
+}
+.f{
+  display: flex;
+  flex-direction: column;
+}
+.dja{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.djafs{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.djafe{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.djc{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dfc{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dfs{
+  display: flex;
+  flex-direction: column;
+}
+
+.df{
+  display: flex;
+  flex-direction: column;
+}

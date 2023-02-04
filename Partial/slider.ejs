@@ -1,0 +1,157 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+
+<div class="swiper box" id="" >
+    <style>
+        .img-box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+           
+        }
+        .img-pub{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .img-item{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <template id="template-slider">
+        <div class="swiper-slide fade-down"><a href="" class="img-pub" target="" ><img class="img-item" src="/images/boulette.png" alt=""></a></div>
+    </template>
+    <div class="swiper-wrapper" id="output-slider">
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script >
+
+
+    servername = document.querySelector('.header').dataset.servername
+    sliders = [ // ingolstadt
+        {
+            city: ['Ingolstadt'],
+            //link: servername+'/basecamp/638e336062b3847d6c2f691d',
+            image: '/images/boulette.png',
+            target: ''
+        },
+        {
+            city: ['Ingolstadt'],
+            //link: servername+'/basecamp/63aa220ea54c50ad277991fa',
+            image: '/images/nems_2.png',
+            target: ''
+        },
+        {
+            city: ['Ingolstadt', 'Giessen', 'Gießen'],
+            //link: servername+'/basecamp/63aa220ea54c50ad277991fa',
+            image: '/images/porc.png',
+            target: ''
+        },
+        {
+            city: ['Ingolstadt', 'Giessen', 'Gießen'],
+            //link: 'https://www.facebook.com/Back.Deko',
+            image: '/images/kuchen.png',
+            target: '_blank'
+        },
+        {
+            city: ['Ingolstadt', 'Giessen', 'Gießen'],
+            //link: servername+'/basecamp/638e336062b3847d6c2f691d',
+            image: '/images/pouletdg.png',
+            target: ''
+        }, // giessen
+        {
+            city: ['Giessen', 'Gießen'],
+            //link: servername+'/basecamp/639b0264ddf4f9876383fdc5',
+            image: '/images/haircut.png',
+            target: ''
+        },
+    ]
+    function tolowercaseexceptfirstletter(str) {
+    return str.split(' ').map(item => 
+           item.charAt(0).toUpperCase() + item.slice(1).toLowerCase()).join(' ');
+    }
+    function loadslider(city){
+        container = document.getElementById('output-slider')
+        document.getElementById('output-slider').innerHTML = ''
+       for( sl of sliders){
+            if(sl.city.includes(tolowercaseexceptfirstletter(city))){
+                const tmp = document.getElementById('template-slider').content.cloneNode(true)
+                tmp.querySelector('.img-pub').setAttribute('href', sl.link)
+                tmp.querySelector('.img-pub').setAttribute('target', sl.target)
+                tmp.querySelector('.img-item').setAttribute('src', sl.image)
+                container.append(tmp)
+            }
+            else if(sl.city.includes('Ingolstadt')){
+                const tmp = document.getElementById('template-slider').content.cloneNode(true)
+                tmp.querySelector('.img-pub').setAttribute('href', sl.link)
+                tmp.querySelector('.img-pub').setAttribute('target', sl.target)
+                tmp.querySelector('.img-item').setAttribute('src', sl.image)
+                container.append(tmp)
+            }
+        }
+        //document.querySelector('.scity').innerHTML = city
+    }
+    console.log('logcity '+ logcity);
+    loadslider(logcity)
+    var swiperslider = new Swiper('.swiper', {
+        //slidesPerView: 4,
+        spaceBetween: 10,
+        loop: true,
+        fade: true,
+        centerSlide: true,
+        grabCursor: true,
+        // pagination
+        pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        dynamicBullets: true,
+        },
+    
+        // Navigation arrows
+        
+        navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+        },
+
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+
+        breakpoints: {
+            580: {
+                slidesPerView: 1,
+            },
+            580: {
+                slidesPerView: 2,
+            },
+            580: {
+                slidesPerView: 3,
+            },
+            580:  {
+                slidesPerView: 4,
+            }
+        },
+    });
+        
+</script> 
+<style>
+.swiper {
+    margin: 0 2rem;
+    height: 400px;
+}
+.swiper-slide{
+    height: 100%;
+    min-width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(211, 211, 240);
+}
+
+</style>

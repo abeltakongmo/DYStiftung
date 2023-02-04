@@ -1,0 +1,37 @@
+.contenair{
+    height: 100vH;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+.loginblock{
+    position: absolute;
+    width: 20%;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    box-shadow: var(--shadow);
+    background-color: #fff;
+    padding: 2rem;
+}
+
+.form-group{
+    display: flex;
+    padding: 10px 0px;
+    justify-content: center;
+    align-items: center;
+}
+.form-group div{
+    width: 100%;
+}
+@media(max-width:900px){
+    .loginblock{
+        width: 90%;
+        padding: 1rem;
+    }
+    .form-group{
+        padding: 5px 0px;
+    }
+    .form-group div{
+        width: 100%;
+    }
+}

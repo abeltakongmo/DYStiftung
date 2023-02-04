@@ -1,0 +1,223 @@
+  <div id="modal-spenden" class="modal">
+    <div class="modal-content">
+      <div class="modal-header dja">
+        <h2>Füllen Sie bitte das Spendeformular aus.</h2>
+        <span class="close" id="close-spenden">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="modal-block">
+          <div id="formcreate"  class="info-block"  style="border: 1px solid #ddd;padding: 1rem 0rem;">
+             
+              
+
+              <div style="padding: 0rem;">
+                <div class="blockform">
+                  <div class="formline-modal " >
+                    <label for="lastname" class="col-sm-2 col-form-label">lastname</label>
+                    <input type="text" class="lastname" id="lastname"  name="lastname" value="" required> 
+                </div>
+                <div class="formline-modal " >
+                  <label for="firstname" class="col-sm-2 col-form-label">firstname</label>
+                  <input type="text" class="firstname" id="firstname"  name="firstname" value="" required> 
+                </div>
+                </div>
+                <div class="blockform">
+                  <div class="formline-modal " >
+                    <label for="email" class="col-sm-2 col-form-label">email</label>
+                    <input type="text" class="email" id="email"  name="email" value="" required> 
+                  </div>
+                  <div class="formline-modal">
+                    <label for="phone" class="col-sm-2 col-form-label">phone</label>
+                    <input type="text" class="phone" id="phone"  name="phone" value="" required>
+                  </div>
+                </div>
+                <div class="blockform">
+                  <div class="formline-modal">
+                    <label for="street" class="col-sm-2 col-form-label">street</label>
+                    <input type="text" class="street" id="street"  name="street" value="" required>
+                  </div>
+                  <div class="formline-modal">
+                    <label for="number" class="col-sm-2 col-form-label">number</label>
+                    <input type="number" class="number" id="number"  name="number" value="" required>
+                  </div>
+                </div>
+                <div class="blockform">
+                  <div class="formline-modal">
+                    <label for="street" class="col-sm-2 col-form-label">city</label>
+                    <input type="text" class="city" id="city"  name="city" value="" required>
+                  </div>
+                  <div class="formline-modal">
+                    <label for="code" class="col-sm-2 col-form-label">code</label>
+                    <input type="number" class="code" id="code"  name="code" value="" required>
+                  </div>
+                </div>
+                <div class="blockform">
+                  <div class="formline-modal">
+                    <label for="country" class="col-sm-2 col-form-label">country</label>
+                    <input type="text" class="country" id="country"  name="country" value="" required>
+                  </div>
+                  <div class="formline-modal " >
+                    <label for="Compagny" class="col-sm-2 col-form-label">group</label>
+                    <input type="text" class="organisation" id="organisation"  name="organisation" value="keine" required>
+                  </div>
+                </div>
+                <div class="blockform">
+                  <div class="formline-modal " >
+                    <label for="amount" class="col-sm-2 col-form-label">amount [Euro]</label>
+                    <input type="number" class="amount" id="amount"  name="amount" value="0" required> 
+                  </div>
+                 
+                  <div class="formline-modal"  >
+                    <label for="type" class="">type</label>
+                    <select class="type" id="type"  name="type" placeholder="type of project" value="" required>
+                        <option value="restaurant"> Projekte</option>
+                        <option value="shop">Veranstaltung</option>
+                    </select> 
+                  </div>
+                </div>
+              </div>
+              
+  
+              
+              
+              <div class="descriptionline" id="description" style="padding: 1rem ">
+                <label for="description" class="" style="padding: 1rem 0rem">Message</label>
+                <textarea class="form-control textareapoint" id="textareapoint" style="background-color: #eee; padding: 1rem " rows="10" name="description" placeholder="message" ></textarea>
+              </div>
+
+              <div class="formsubmit" style="padding: 1rem ; width: 100%; align-items: right;text-align: right;">
+                <button type="submit"  onclick="submitspenden()"  class="btn-first done" style="justify-content: flex-end; align-items: right; " >submit</button>
+              </div>
+              
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+  
+  <script>
+       var editorcpoint;
+       const modal = document.querySelector('#modal-spenden');
+        ClassicEditor
+       .create(modal.querySelector('.textareapoint'),{
+                    mediaEmbed: {
+                        previewsInData:true
+                    },
+                })
+       .then( value => {
+        editorcpoint = value})
+       .catch(err => console.log(err))
+            // Get DOM Elements
+       
+        //const modalBtn = document.querySelector('#modal-btn');
+        const closeBtn = document.querySelector('#close-spenden');
+
+        // Events
+        //modalBtn.addEventListener('click', openspendenModal);
+        closeBtn.addEventListener('click', closeModal);
+        //window.addEventListener('click', outsideClick);
+
+        // Open
+        function openspendenModal() {
+          closeModalvpoint()
+          modal.style.display = 'block';
+        }
+
+        // Close
+        function closeModal() {
+          modal.style.display = 'none';
+        }
+
+        // Close If Outside Click
+        function outsideClick(e) {
+          if (e.target == modal) {
+              modal.style.display = 'none';
+          }
+        }
+
+        async function submitspenden(){
+            event.preventDefault()
+            servername = document.querySelector('.header').dataset.servername
+            if(editorcpoint.getData().length == 0) {alert('please sent a message!'); return;}
+            if(!modal.querySelector('.firstname').value) {alert('firstname is not defined!'); return;}
+            if(!modal.querySelector('.lastname').value) {alert('lastname is not defined!'); return;}
+            if(!modal.querySelector('.email').value) {alert('email is not defined!'); return;}
+            if(!modal.querySelector('.phone').value) {alert('phone is not defined!'); return;}
+            if(modal.querySelector('.amount').value == 0) {alert('amount is not defined!'); return;}
+            if(!modal.querySelector('.street').value) {alert('street is not defined!'); return;}
+            if(!modal.querySelector('.number').value) {alert('number is not defined!'); return;}
+            if(!modal.querySelector('.city').value) {alert('city is not defined!'); return;}
+            if(!modal.querySelector('.code').value) {alert('code is not defined!'); return;}
+            if(!modal.querySelector('.country').value) {alert('land is not defined!'); return;}
+            if(!modal.querySelector('.organisation').value) {alert('organisation is not defined!'); return;}
+            let fd = new FormData();
+            fd.append("firstname", modal.querySelector('.firstname').value);
+            fd.append("lastname", modal.querySelector('.lastname').value);
+            fd.append("email", modal.querySelector('.email').value);
+            fd.append("phone", modal.querySelector('.phone').value);
+            fd.append("organisation", modal.querySelector('.organisation').value);
+            fd.append("amount", modal.querySelector('.amount').value);
+            fd.append("street", modal.querySelector('.street').value);
+            fd.append("number", modal.querySelector('.number').value);
+            fd.append("city", modal.querySelector('.city').value);
+            fd.append("code", modal.querySelector('.code').value);
+            fd.append("country", modal.querySelector('.country').value);
+            fd.append("message", editorcpoint.getData());
+
+            endpoint = '/API/spende'
+          
+            const formData = new URLSearchParams(fd);
+            ret = await fetch(servername + endpoint,
+            {   method: 'POST',
+                mode : 'same-origin',
+                credentials: 'same-origin',
+                body : formData
+            })
+            .then(function(response) {
+            return response.json()
+            }).then(async function(ret) {
+                if(ret.success){
+                    alert('your information has been saved.')
+                    await emailnotify(ret.spendeid)
+                }
+                else{alert(ret.message); console.log(ret.message);}
+                closeModal()
+            });
+          }
+          async function emailnotify(id){
+            let fd = new FormData();
+            const formData = new URLSearchParams(fd);
+            servername = document.querySelector('.header').dataset.servername
+            endpoint = '/API/emailnotify/'+id
+            ret = await fetch(servername + endpoint,
+            {   method: 'POST',
+                mode : 'same-origin',
+                credentials: 'same-origin',
+                body : formData
+            })
+            .then(function(response) {
+            return response.json()
+            }).then(async function(ret) {
+                if(ret.success){
+                    alert('A email has been sent to Denise Yomi and you.')
+                }
+                else{alert(ret.message); console.log(ret.message);}
+                closeModal()
+            });
+          }
+  </script>
+  
+  <script>
+    document.querySelectorAll( 'oembed[url]' ).forEach( element => {
+        // Create the <a href="..." class="embedly-card"></a> element that Embedly uses
+        // to discover the media.
+        const anchor = document.createElement( 'a' );
+
+        anchor.setAttribute( 'href', element.getAttribute( 'url' ) );
+        anchor.className = 'embedly-card';
+
+        element.appendChild( anchor );
+    } );
+</script>

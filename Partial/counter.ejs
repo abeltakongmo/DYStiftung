@@ -1,0 +1,155 @@
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+
+.counter-container{
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 5rem 0rem;
+}
+
+.counter-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter-value{
+    font-size: 3rem;
+    font-weight: bold;
+    color: #888;
+    padding: 1rem;
+}
+
+.counter-label{
+    font-size: 1.5rem;
+    color: var(--theme);
+}
+
+@media ( max-width: 790px){
+    .counter-container{
+    width: 100%;
+    }
+    .counter-label,
+    .counter-value{
+    font-size: 1.2rem;
+}
+}
+</style>
+<div class="counter-container" id="counter">
+    <div class="counter-item">
+        <span class="counter-label"><h2>Projekte</h2> </span>
+        <span class="counter-value" id="projekt">2</span>
+    </div>
+
+    <div class="counter-item">
+        <span class="counter-label"><h2>Veranstaltungen</h2> </span>
+        <span class="counter-value" id="veranstaltung">1</span>
+    </div>
+
+    <div class="counter-item">
+        <span class="counter-label"><h2>Andere</h2> </span>
+        <span class="counter-value" id="andere">1</span>
+    </div>
+
+    <div class="counter-item">
+        <span class="counter-label"><h2>Besucher</h2> </span>
+        <span class="counter-value" id="visitor"><%=visitor%></span>
+    </div>
+</div>
+<script>
+    function loadstat(){
+        /*
+        projekte = posts.filter(post => post.type.toLowerCase() === 'projekt')
+        veranstaltung = posts.filter(post => post.type.toLowerCase() === 'veranstaltung')
+        andere = posts.filter(post => post.type.toLowerCase() === 'andere')
+        console.log('projekte '+projekte.length);
+        document.getElementById('#projekt').value = projekte.length
+        document.getElementById('#veranstaltung').value = veranstaltung.length
+        document.getElementById('#andere').value = andere.length
+        */
+    }
+    loadstat()
+// counters
+
+const runCounters = () => {
+    let elements = document.querySelectorAll('.counter-value');
+    let counters = Array(elements.length);
+    let intervals = Array(elements.length);
+    const stops = Array(elements.length);
+    let starts = Array(elements.length);
+
+    starts.fill(0);
+    counters.fill(0);
+    elements.forEach((element, index) => {   
+        stops[index] = parseInt(element.innerHTML);
+    });
+
+    const minValue = Math.min.apply(Math, stops);
+
+    elements.forEach((element, index) => {  
+        if(minValue === 0 || minValue < 20) {
+            counters[index] = 0;
+        }else{
+            counters[index] = parseInt(element.innerHTML) - minValue;
+        }   
+    });
+
+
+    for(let i=0; i<elements.length; i++) {
+        intervals[i] = setInterval(() => {
+            if(counters[i] === stops[i]){
+                clearInterval(intervals[i]);
+            }else{
+                counters[i] += 1;
+                elements[i].innerHTML = counters[i].toString(); 
+            }
+        }, 20);
+    }
+}
+
+
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+counterEl = document.getElementById('counter');
+initCounter = false;
+
+
+if(document.readyState !== 'complete') {
+    var isActive = isInViewport(counterEl);
+    if(isActive && !initCounter){
+        runCounters();
+        initCounter = true;
+    }
+}
+
+
+
+window.addEventListener('scroll', (event) => {
+    var isActive = isInViewport(counterEl);
+    if(isActive && !initCounter){
+        runCounters();
+        initCounter = true;
+    }
+});
+
+</script>

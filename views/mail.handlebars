@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/scss.css">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/animation.css">
+    <link rel="stylesheet" href="/css/grid.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/hello.css">
+    <link rel="stylesheet" href="/css/comment.css">
+    <link rel="stylesheet" href="/css/rating.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/modal/nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="/images/DYicon.png" sizes="32x32">
+    <title>Mail</title>
+</head>
+<body>
+   
+    <section class="bd dj dfc fade-down">
+        <div style="display: flex; flex-direction:column; justify-content: space-between;">
+            <div class="title" style="background-color: rgb(91, 87, 134); color:#fff; padding: 2rem 4rem; margin: 2rem 4rem;"> 
+                hi Denise 
+            </div>
+            <div class="body" style="height: 40vH; padding: 2rem 4rem; margin: 2rem 4rem;">
+                <div style="display: flex; justify-content: flex-start; align-items: center; padding: .5rem 0rem;">
+                    <label for="">Name: </label>
+                    <span style="padding-left: 2rem;"{{spende.firstname}} ` + ` {{spende.lastname}}  </span>
+                </div>
+                <div style="display: flex; justify-content: flex-start; align-items: center;  padding: .5rem 0rem;">
+                    <label for="">Address </label>
+                    <span style="padding-left: 2rem;"> {{spende.address.street}} ` + ` {{spende.address.number}}</span>
+                </div>
+                <div style="display: flex; justify-content: flex-start; align-items: center;  padding: .5rem 0rem;">
+                    <label for="">Code: </label>
+                    <span style="padding-left: 2rem;">{{spende.address.code}}</span>
+                </div>
+                <div style="display: flex; justify-content: flex-start; align-items: center;  padding: .5rem 0rem;">
+                    <label for="">Country: </label>
+                    <span style="padding-left: 2rem;">{{spende.address.country}}</span>
+                </div>
+                <div style="display: flex; justify-content: flex-start; align-items: center;  padding: .5rem 0rem;">
+                    <label for="">Email: </label>
+                    <span style="padding-left: 2rem;">{{spende.email}}</span>
+                </div>
+                <div style="display: flex; justify-content: flex-start; align-items: center;  padding: .5rem 0rem;">
+                    <label for="">Phone: </label>
+                    <span style="padding-left: 2rem;">{{spende.phone}}</span>
+                </div>
+                <div style="display: flex; justify-content: flex-start; align-items: center; padding: .5rem 0rem;">
+                    <label for="">Organisation: </label>
+                    <span style="padding-left: 2rem;">{{spende.organisation}} </span>
+                </div>
+                <div style="display: flex; justify-content: flex-start; align-items: center; padding: .5rem 0rem;">
+                    <label for="">Amount: </label>
+                    <span style="padding-left: 2rem;">{{spende.amount}} Euros</span>
+                </div>
+                <p> {{spende.message}}</p> 
+            </div>
+            <div class="" style="background-color: rgb(91, 87, 134);; color:#fff; padding: 2rem 4rem; margin: 2rem 4rem;"> 
+                thank you
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

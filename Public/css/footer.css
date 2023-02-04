@@ -1,0 +1,125 @@
+.footer{
+    background-color: var(--theme);
+    position:relative;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0rem;
+}
+
+
+.footeritem{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10rem;
+    text-align: center;
+}
+
+.f-item{
+    color: rgba(0,0,0,0.1);
+}
+.f-item-title{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 5px;
+    padding-bottom: 20px;
+}
+.f-item i{
+    color: #ddd;
+}
+.footer ul{
+    padding-inline-start: 0px;
+}
+.f-item li{
+    width: 100%;
+    padding: 10px 0px;
+    margin: 0px;
+    color:#ddd
+}
+
+.btn-social{
+    text-align: center;
+}
+.btn-social i{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    line-height: 3rem;
+    font-size: 2rem;
+    background-color: var(--theme);
+    color: #fff;
+}
+.btn-social i:hover{
+    transition: all 0.3s;
+    background-color: #fff;
+    color:var(--theme);
+}
+li{
+    list-style: none;
+    padding: 0.5rem 0rem;
+    margin: 0px;
+}
+
+.f-item li a{
+     color: #fff;
+}
+.f-item a:hover{
+    transition: all 0.3s;
+    text-decoration: underline;
+    font-size: 1rem;
+}
+
+.footer-info{
+    border-top: 1px solid #bbb;
+    padding: 1rem 5rem;
+}
+
+.footer-bottom-item a{
+    color: #fff;
+}
+
+.copyright span{
+    color:#fff;
+}
+.copyright{color: #fff; font-size: .8rem;}
+
+@media (max-width:768px){
+    .footer{
+        height: auto;
+        overflow: hidden;
+        padding: 1rem;
+    }
+
+    .footeritem{
+        gap: 0rem;
+        display: flex;
+        flex-direction: column;
+    }
+    li{
+        list-style: none;
+        padding: 0.1rem 0rem;
+        margin: 0px;
+        font-size: 1.5rem;
+    }
+    .footer-bottom-item{
+        margin: 0px;
+        padding: 10px;
+    }
+    .footer-bottom-item a{
+        color: #fff;
+        font-size: 1.5rem;
+    }
+    .f-item{
+        padding: 1rem 0rem;
+    }
+    .copyright {
+        font-size: 1rem;
+    }
+    .footer-info{
+        padding: 1rem 1rem;
+    }
+}

@@ -1,0 +1,129 @@
+
+        <div class="box" style="margin-bottom: .5rem;">
+            
+            <template id="template-comment">
+                <div class="commentformblock df" > 
+                    <div class="comment-profile">
+                        <div class="comment-img-block" >
+                            <img class="comment-img" src="<%=servername%>/images/profile.png" alt="">
+                            <span class="comment-firstname">  Alex </span>
+                        </div>
+                    </div>
+                    <div class="comment-date"> </div>
+                    <div class="comment-text"> 
+                        <p class="comment-content">luptas eaque repellendus non perspiciatis. Rerum, asperiores. Debitis at nulla cupiditate incidunt officia exercitationem praesentium quos.</p>
+                    </div>
+                </div>
+            </template>
+            <div class="df" >
+                <div class="commentformblock df"> 
+                    <div class="" style="padding: 0rem 1rem;">
+                        <h5 style="padding: 1rem;">enter your name</h5>
+                        <input class="name ihv" style="width:100%; "  max="50" placeholder="max mustermann" id="name" >
+                    </div>
+                    
+                    <div class="ratingline" id="ratingdescription" >
+                        <h5 style="padding: 1rem;">enter your comment</h5>
+                        <textarea class="form-control ihv" id="feedback"  rows="7" name="feedback" max="500" placeholder="enter your comment here..." ></textarea>
+                    </div>
+                    <div class="formsubmit" id="btn" style="padding: 1rem 0rem; width: 100%;">
+                        <button type="submit" onclick="submitformcomment()"  id="submitformcreate"  class="btn-first" >senden</button>
+                    </div>
+                </div>
+                <div class="comment-grid" id="comments-output">
+                </div>
+                <div class="formsubmit" id="btn" style="padding: 1rem 0rem;text-align: center; justify-content: center;">
+                    <button type="submit" onclick="loadmorecomment()"  id="submitformcreate"  class="btn-first" >mehr</button>
+                </div>
+            </div>
+            
+            
+            <script>
+                let comments = [
+                    {
+                        _id: 1,
+                        image:'/images/profile.png',
+                        firstname:'Alex',
+                        content:'This is what i was talking about!! Delicious Sir',
+                        date: 'one hour ago'
+                    },
+                    {
+                        _id: 2,
+                        firstname:'Rose',
+                        image:'/images/profile.png',
+                        content:'i appreciate the menu 3. It is great',
+                        date: '3 days ago'
+                    },
+                ]
+                
+                async function submitformcomment(){
+                    event.preventDefault()
+                    console.log('comment')
+                    if(!document.querySelector('#feedback').value) {alert('comment is not defined!'); return;}
+                    if(!document.querySelector('.name').value) {alert('name is not defined!'); return;}
+                    if(!document.querySelector('.name').value.length > 20) {alert('enter name is too long!'); return;}
+                    if(!document.querySelector('#feedback').value.length > 500) {alert('enter text is too long!'); return;}
+                    let fd = new FormData();
+                    fd.append("name", document.querySelector('.name').value);
+                    fd.append("text", document.querySelector('#feedback').value);
+                    endpoint = servername+'/API/comment'
+                    console.log(endpoint);
+                    const formData = new URLSearchParams(fd);
+                    ret = await fetch( endpoint,
+                    {   method: 'POST',
+                        mode : 'same-origin',
+                        credentials: 'same-origin',
+                        body : formData
+                    })
+                    .then(function(response) {
+                    return response.json()
+                    }).then(async function(ret) {
+                        if(ret.success){alert('comment added!');
+                    }
+                        else{alert(ret.message); console.log(ret.message);}
+                        
+                    });
+                    loadcomments('comments-output')
+                }
+
+                async function getcomments(){
+                endpoint = '/API/getcomments'
+                _comments = await GetData(endpoint)
+                return _comments
+}
+                async function loadcomments(output){
+                    servername = document.querySelector('.header').dataset.servername
+                    ownerid = document.querySelector('.header').dataset.ownerid
+                    // template-formcomment"
+                    let pcomments = await getcomments();
+                    console.log(pcomments);
+                    container = document.getElementById(output)
+                   
+
+                   
+                    if(pcomments?.element >  0) {
+                        document.getElementById('comments').innerHTML = 'COMMENTS ('+pcomments?.element+')'
+                        for (let [ind, comment] of Object.entries(pcomments.comments)) {
+                            const tmp = document.getElementById('template-comment').content.cloneNode(true)
+                            tmp.querySelector('.comment-firstname').innerHTML = comment.name
+                            tmp.querySelector('.comment-content').innerHTML = comment.text
+                            tmp.querySelector('.comment-date').innerHTML = comment.date
+                            container.append(tmp)
+                        }
+                    }
+                    else{
+                        document.getElementById('comments').innerHTML = 'COMMENTS ('+comments?.length+')'
+                        for (let [ind, comment] of Object.entries(comments)) {
+                            const tmp = document.getElementById('template-comment').content.cloneNode(true)
+                            tmp.querySelector('.comment-firstname').innerHTML = comment.firstname
+                            tmp.querySelector('.comment-img').setAttribute('src', servername + comment.image)
+                            tmp.querySelector('.comment-content').innerHTML = comment.content
+                            tmp.querySelector('.comment-date').innerHTML = comment.date
+                            container.append(tmp)
+                        }
+                    }
+                }
+                loadcomments('comments-output')
+            </script>
+        </div>
+

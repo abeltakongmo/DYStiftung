@@ -1,0 +1,119 @@
+<div class="ratingblock box fade-down" id="formrate">
+    <div class="rating" >
+        <div class="ratingformblock" >
+            <div id="formcreate" action="" enctype="multipart-form-data" method="POST" class="needs-validation" style="width: 100%;" novalidate>
+                <div style="padding: 1rem; ">
+                    <p style="color: #ccc; font-size: 15px; ">Geben Sie mehrere Sterne, Wenn Sie mit der Leistung von Frau Yomi zufrieden sind.</p>
+                </div>
+                <div class="">
+                    <div class="ratingstar">
+                        <div class="stars " onclick="addstar('gold')">
+                            <i class="fas fa-star fade-zoom"  id="start0" style="color:gold"></i>
+                        </div>
+                        <div class="stars "  onclick="removestar('var(--theme)')" >
+                            <i class="fas fa-star fade-zoom" id="start6" style="color:var(--theme);"></i>
+                        </div>
+                       
+                    </div>
+                    <div class="starslist" style="background-color:#fff">
+                        <i class="fas fa-star" id="star1" ></i>
+                        <i class="fas fa-star" id="star2" ></i>
+                        <i class="fas fa-star" id="star3" ></i>
+                        <i class="fas fa-star" id="star4" ></i>
+                        <i class="fas fa-star" id="star5" ></i>
+                    </div>
+                   
+                    <div class="scorerate" >
+                        <h3 id="starnumber" style="color:var(--theme); padding: 0rem 1rem;"></h3>
+                        <span><i class="fas fa-star"  style="color: gold;" ></i></span>
+                    </div>
+                </div>
+               
+                <script>
+                    var star = 0
+                    function initrating(color, st){
+                        for(ic = 1; ic <= star; ic++){
+                            document.getElementById('star'+ic).style.color = color
+                        }
+                        document.getElementById('starnumber').innerHTML = st
+                    }
+                    function addstar(color){
+                        if(star < 5) {
+                            star = star + 1 ; 
+                            document.getElementById('star'+star).style.color = 'gold'
+                            document.getElementById('starnumber').innerHTML = star
+                        }
+                    }
+                    function removestar(color){
+                        if(star > 0){ 
+                            document.getElementById('star'+star).style.color = 'var(--theme)'
+                            star = star - 1 ; 
+                            document.getElementById('starnumber').innerHTML = star
+                        }
+                    }
+                    
+                    function rate(){ 
+                        status = document.getElementById('formrate').style.display;
+                        if(status == 'none') document.getElementById('formrate').style.display = 'flex';
+                        else{ document.getElementById('formrate').style.display = 'none';}
+                    }
+                    async function getscore(){
+                        endpoint = '/API/getscore'
+                        ret = await GetData(endpoint); 
+                        if(ret.success){
+                            document.getElementById('userscore').innerHTML = ret.score; 
+                            document.getElementById('rater').innerHTML = 'BEWERTUNG ('+ ret.rates+')';
+                            star = ret.rate
+                        }
+                        else {
+                            document.getElementById('userscore').innerHTML = 0; 
+                            document.getElementById('rater').innerHTML = 'BEWERTUNG (0)';
+                            star = 0
+                        }
+                        initrating('gold', star)
+                    }
+                    getscore()
+                   
+                    async function submitformrating(){
+                        let fd = new FormData();
+                        fd.append("rate", star);
+                        endpoint = servername + '/API/addrate'
+                        const formData = new URLSearchParams(fd);
+                        ret = await fetch(endpoint,
+                        {   method: 'POST',
+                            mode : 'same-origin',
+                            credentials: 'same-origin',
+                            body : formData
+                        })
+                        .then(function(response) {
+                        return response.json()
+                        }).then(async function(ret) {
+                            if(ret.success){
+                                await getscore();
+                            alert('rate updated!')}
+                            else{alert(ret.message); console.log(ret.message);}
+                        });
+                    }
+                
+                </script>
+                <div class="formsubmit" id="btn" style="padding: 1rem 0rem; width: 100%;">
+                    <button type="submit" onclick="submitformrating()"  id="submitformcreate"  class="btn-first" >senden</button>
+                </div>
+                <div style="padding: 1rem; ">
+                    <p style="color: #ccc; font-size: 15px; ">Danke für deine Bewertung.</p>
+                </div>
+            </div> 
+        </div>
+        <div class="ratingscoreblock" >
+            <div class="scroreblock"> 
+                <span>Score</span>
+                <div class="dja">
+                    <h5 id="userscore">3.5</h5> 
+                    <i class="fa fa-star" style="color: gold;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    </script>
+</div>

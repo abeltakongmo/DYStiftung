@@ -1,0 +1,91 @@
+
+<div id="vpoint-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header dja" >
+            <h2 class="modal-title colorbit">enter the required information</h2> 
+            <span class="close" onclick="closeModalvpoint()">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div class="modal-block">
+                <div class="modal-img">
+                    <img class="vpointimage " src="/images/profile.png" alt="">
+                </div>
+                <div id="formcreate"  class="info-block"  style="border: 1px solid #ddd;padding: 1rem;">
+                    <!--
+                    <div class="formline-profile " >
+                        <label for="name" class="col-sm-2 col-form-label"></label>
+                        <span class="name"></span>
+                    </div>
+                    -->
+                    <div class="dja">
+                        <div class="formline-profile">
+                            <span class="date"></span>
+                        </div>
+                       
+                        <div class="formline-profile"  >
+                            <span class="type"></span>
+                        </div>
+                    </div>
+                    <div class="formline-profile" id="description" >
+                        <label for="description" class=""></label>
+                        <span ><p class="text"></p></span>
+                    </div>
+                    <button type="submit"  onclick="openspendenModal()"  class="btn-thrid done" >spenden</button>
+                </div>
+            </div>
+      
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    endpoint = '/API';
+    var editorpoint;
+    const vpointmodal = document.querySelector('#vpoint-modal');
+    
+    function showpost(point){ openModalvpoint(point)}
+    
+    // Get DOM Elements
+    var ipoint
+    var pointid; var pointname; 
+    
+    // Open
+    async function openModalvpoint(point) {
+        console.log(point);
+       
+        servername = document.querySelector('.header').dataset.servername
+        pointname = point.name
+        //vpointmodal.querySelector('.modal-title').innerHTML = `<a href="/basecamp/${point.ownerid}">${point.name}</a>`
+        vpointmodal.querySelector('.modal-title').innerHTML = point.name
+        vpointmodal.querySelector('.text').innerHTML = point.text
+        vpointmodal.querySelector('.type').innerHTML = point.type;
+        vpointmodal.querySelector('.date').innerHTML = point.date;
+        //vpointmodal.querySelector('.done').addEventListener('click', ()=> {event.preventDefault(); subscribes();});
+        ptimage = servername + `/images/${point?.image}`
+        if(ptimage.includes('images//images')){
+            ptimage = ptimage.replace('images//images', '/images')
+        }
+        if(ptimage.includes('Public')){
+            ptimage = ptimage.replace('Public/images', '')
+        }
+        console.log(ptimage);
+        vpointmodal.querySelector('.vpointimage').setAttribute('src', ptimage);
+       
+        vpointmodal.style.display = 'block';
+    }
+
+    // Close
+    function closeModalvpoint() {
+        vpointmodal.style.display = 'none';
+    }
+
+    // Close If Outside Click
+    function outsideClickvpoint(e) {
+      if (e.target == vpointmodal) {
+        vpointmodal.style.display = 'none';
+      }
+    }
+    
+  </script>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/scss.css">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/animation.css">
+    <link rel="stylesheet" href="/css/grid.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/hello.css">
+    <link rel="stylesheet" href="/css/comment.css">
+    <link rel="stylesheet" href="/css/rating.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/modal/nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="/images/DYicon.png" sizes="32x32">
+    <title>DYStiftung</title>
+</head>
+<body>
+    <script src="/ckeditor/ckeditor.js" ></script>
+     <!--    <link rel="stylesheet" href="/css/navbar.css"> -->
+     <header class="bl header" data-servername="<%=servername%>">
+        <%- include("../Partial/nav.ejs") %>
+     </header>
+
+    <!--swiper-->
+    <%- include("../Partial/swiper.ejs") %>
+   
+    <section class="bl djc df" id="aktuelles">
+        <div class="df box">
+            <div class="menu" >
+                <ul class="dja menu-item">
+                    <li><div class="param" onclick=" updatepost('output-title', 'Alle')">ALLE</div></li>
+                    <li><div class="param" onclick=" updatepost('output-title', 'Projekt')">PROJEKTE</div></li>
+                    <li><div class="param" onclick=" updatepost('output-title', 'Veranstaltung')">VERANSTALTUNGEN</div></li>
+                    <li><div class="param" onclick=" updatepost('output-title', 'Andere')">ANDERE</div></li>
+                </ul>
+            </div>
+            <template id="template-post">
+                <div class="grid-item "  >
+                    <div class="grid-item-text">
+                        <div class="post-top" >
+                            <span id="post-date">18.11.2022</span>
+                            <div >
+                                <label><i class="fa-regular fa-clipboard"></i></label>
+                                <label id="post-type">Migrants</label>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <span class="post-text">
+                                <h6 id="post-name">Integration</h6>
+                                <p class="p-post-content" id="post-content">
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam obcaecati nostrum deserunt natus eum dolorem nulla ipsum repellendus, aperiam impedit alias vero velit ducimus saepe mollitia deleniti! Provident asperiores fuga repudiandae odit rem veritatis totam aliquid possimus consequuntur facere amet, quasi enim dicta itaque eligendi iusto quo harum accusantium ea tempora dolor. Enim nemo dolorum, vero accusantium incidunt qui totam! Similique laborum cumque voluptate laboriosam fugiat sit ab harum corrupti enim numquam accusamus, repudiandae reprehenderit omnis, obcaecati voluptatibus! Unde corporis exercitationem, magnam tempore omnis at sequi itaque a vero deleniti reiciendis qui maxime labore dolor cupiditate quasi rerum ipsum quas?
+                                </p>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="grid-item-img">
+                        <img class="grip-img" id="post-image" src="images/Integration_4.jpg" alt="">
+                    </div>
+                </div>
+            </template>
+            <div class="grid" id="output-title"></div>
+            <script>
+                let contents = [
+                    {
+                        date: '18.01.2022',
+                        name:'Beratung',
+                        type:'Projekt',
+                        text:'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam obcaecati nostrum deserunt natus eum dolorem nulla ipsum repellendus, aperiam impedit alias vero velit ducimus saepe mollitia deleniti! Provident asperiores fuga repudiandae odit rem veritatis totam aliquid possimus consequuntur facere amet, quasi enim dicta itaque eligendi iusto quo harum accusantium ea tempora dolor. Enim nemo dolorum, vero accusantium incidunt qui totam! Similique laborum cumque voluptate laboriosam fugiat sit ab harum corrupti enim numquam accusamus, repudiandae reprehenderit omnis, obcaecati voluptatibus! Unde corporis exercitationem, magnam tempore omnis at sequi itaque a vero deleniti reiciendis qui maxime labore dolor cupiditate quasi rerum ipsum quas?',
+                        image:'/images/beratung_1.jpg'
+                    },
+                    {
+                        date: '18.11.2022',
+                        name:'Integration',
+                        type:'Veranstaltung',
+                        text:'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam obcaecati nostrum deserunt natus eum dolorem nulla ipsum repellendus, aperiam impedit alias vero velit ducimus saepe mollitia deleniti! Provident asperiores fuga repudiandae odit rem veritatis totam aliquid possimus consequuntur facere amet, quasi enim dicta itaque eligendi iusto quo harum accusantium ea tempora dolor. Enim nemo dolorum, vero accusantium incidunt qui totam! Similique laborum cumque voluptate laboriosam fugiat sit ab harum corrupti enim numquam accusamus, repudiandae reprehenderit omnis, obcaecati voluptatibus! Unde corporis exercitationem, magnam tempore omnis at sequi itaque a vero deleniti reiciendis qui maxime labore dolor cupiditate quasi rerum ipsum quas?',
+                        image:'/images/Integration_4.jpg'
+                    },
+                    {
+                        date: '18.11.2022',
+                        name:'Andere',
+                        type:'Projekt',
+                        text:'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam obcaecati nostrum deserunt natus eum dolorem nulla ipsum repellendus, aperiam impedit alias vero velit ducimus saepe mollitia deleniti! Provident asperiores fuga repudiandae odit rem veritatis totam aliquid possimus consequuntur facere amet, quasi enim dicta itaque eligendi iusto quo harum accusantium ea tempora dolor. Enim nemo dolorum, vero accusantium incidunt qui totam! Similique laborum cumque voluptate laboriosam fugiat sit ab harum corrupti enim numquam accusamus, repudiandae reprehenderit omnis, obcaecati voluptatibus! Unde corporis exercitationem, magnam tempore omnis at sequi itaque a vero deleniti reiciendis qui maxime labore dolor cupiditate quasi rerum ipsum quas?',
+                        image:'/images/migration_5.jpg'
+                    },
+                    {
+                        date: '18.11.2022',
+                        name:'Integration',
+                        type:'Veranstaltung',
+                        text:'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam obcaecati nostrum deserunt natus eum dolorem nulla ipsum repellendus, aperiam impedit alias vero velit ducimus saepe mollitia deleniti! Provident asperiores fuga repudiandae odit rem veritatis totam aliquid possimus consequuntur facere amet, quasi enim dicta itaque eligendi iusto quo harum accusantium ea tempora dolor. Enim nemo dolorum, vero accusantium incidunt qui totam! Similique laborum cumque voluptate laboriosam fugiat sit ab harum corrupti enim numquam accusamus, repudiandae reprehenderit omnis, obcaecati voluptatibus! Unde corporis exercitationem, magnam tempore omnis at sequi itaque a vero deleniti reiciendis qui maxime labore dolor cupiditate quasi rerum ipsum quas?',
+                        image:'/images/migration_5.jpg'
+                    },
+                    {
+                        date: '18.11.2022',
+                        name:'Integration',
+                        type:'Andere',
+                        text:'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam obcaecati nostrum deserunt natus eum dolorem nulla ipsum repellendus, aperiam impedit alias vero velit ducimus saepe mollitia deleniti! Provident asperiores fuga repudiandae odit rem veritatis totam aliquid possimus consequuntur facere amet, quasi enim dicta itaque eligendi iusto quo harum accusantium ea tempora dolor. Enim nemo dolorum, vero accusantium incidunt qui totam! Similique laborum cumque voluptate laboriosam fugiat sit ab harum corrupti enim numquam accusamus, repudiandae reprehenderit omnis, obcaecati voluptatibus! Unde corporis exercitationem, magnam tempore omnis at sequi itaque a vero deleniti reiciendis qui maxime labore dolor cupiditate quasi rerum ipsum quas?',
+                        image:'/images/migration_5.jpg'
+                    },
+                    {
+                        date: '18.11.2022',
+                        name:'Integration',
+                        type:'Projekt',
+                        text:'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam obcaecati nostrum deserunt natus eum dolorem nulla ipsum repellendus, aperiam impedit alias vero velit ducimus saepe mollitia deleniti! Provident asperiores fuga repudiandae odit rem veritatis totam aliquid possimus consequuntur facere amet, quasi enim dicta itaque eligendi iusto quo harum accusantium ea tempora dolor. Enim nemo dolorum, vero accusantium incidunt qui totam! Similique laborum cumque voluptate laboriosam fugiat sit ab harum corrupti enim numquam accusamus, repudiandae reprehenderit omnis, obcaecati voluptatibus! Unde corporis exercitationem, magnam tempore omnis at sequi itaque a vero deleniti reiciendis qui maxime labore dolor cupiditate quasi rerum ipsum quas?',
+                        image:'/images/migration_5.jpg'
+                    },
+                ]
+                
+                async function getposts(){
+                    endpoint = '/API/getposts'
+                    let points = []
+                    //points = await GetData(endpoint)
+                    return points
+                }
+                function selectfilter( posts, param ){
+                    let _posts
+                    if(param && param.toLowerCase() != 'alle'){ _posts = posts.filter(post => post.type.toLowerCase() === param.toLowerCase()) }
+                    else { _posts = posts}
+                    return _posts
+                }
+                let ret = []; let posts = []
+                async function loadtitle(output){
+                    servername = document.querySelector('.header').dataset.servername
+                    
+                    ret = await getposts();
+                    container = document.getElementById(output)
+                    document.getElementById(output).innerHTML = ''
+                    let contentimgindex = [];
+                    let postblockindex = [];
+                    if(/*ret?.element ==  0*/ 1) { posts = contents} else { posts = ret?.posts }
+
+                    for (let [ind, post] of Object.entries(posts)) {
+                        contentimgindex[ind] = 'post-image'+ ind
+                        postblockindex[ind] = 'post-block'+ ind
+                        const tmp = document.getElementById('template-post').content.cloneNode(true)
+                        tmp.getElementById('post-name').innerHTML = post.name
+                        tmp.getElementById('post-content').innerHTML = post.text
+                        tmp.getElementById('post-type').innerHTML = post.type
+                        tmp.getElementById('post-date').innerHTML = post.date
+                        ptimage = servername + post?.image
+                        if(ptimage.includes('Public')){
+                            ptimage = ptimage.replace('Public/images', '')
+                        }
+                        tmp.querySelector('.grip-img').setAttribute ('id', contentimgindex[ind])
+                        tmp.querySelector('.grid-item').setAttribute ('id', postblockindex[ind])
+                        tmp.getElementById(contentimgindex[ind]).setAttribute("src", ptimage)
+                        container.append(tmp)
+                        document.getElementById(postblockindex[ind]).addEventListener('click', (event)=>{event.preventDefault(); console.log('modal'+ind); showpost(post)})
+                    }
+                    
+                }
+                loadtitle('output-title')
+                async function updatepost(output, param){
+                    servername = document.querySelector('.header').dataset.servername
+                    container = document.getElementById(output)
+                    document.getElementById(output).innerHTML = ''
+                    let contentimgindex = [];
+                    let postblockindex = [];
+                    if(/*ret?.element ==  0*/ 1) { posts = contents} else { posts = ret?.posts }
+                    posts = selectfilter( posts, param )
+                    for (let [ind, post] of Object.entries(posts)) {
+                        contentimgindex[ind] = 'post-image'+ ind
+                        postblockindex[ind] = 'post-block'+ ind
+                        const tmp = document.getElementById('template-post').content.cloneNode(true)
+                        tmp.getElementById('post-name').innerHTML = post.name
+                        tmp.getElementById('post-content').innerHTML = post.text
+                        tmp.getElementById('post-type').innerHTML = post.type
+                        tmp.getElementById('post-date').innerHTML = post.date
+                        ptimage = servername + post?.image
+                        if(ptimage.includes('Public')){
+                            ptimage = ptimage.replace('Public/images', '')
+                        }
+                        tmp.querySelector('.grip-img').setAttribute ('id', contentimgindex[ind])
+                        tmp.querySelector('.grid-item').setAttribute ('id', postblockindex[ind])
+                        tmp.getElementById(contentimgindex[ind]).setAttribute("src", ptimage)
+                        container.append(tmp)
+                        document.getElementById(postblockindex[ind]).addEventListener('click', (event)=>{event.preventDefault(); console.log('modal'+ind); showpost(post)})
+                    }
+                    
+                }
+                
+            </script>
+        </div>
+    </section>
+
+
+    <div class="bd dfc dj fade-down" style="padding:1rem;" id="stiftung">   
+        <div class="box block" >
+            <div class="infoblock">
+                <div class="infotext">
+                    <div class="infotitle">
+                        <h3>STIFTUNG</h3> 
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, facere neque,  eius commodi laborum officiis mollitia modi nulla dignissimos enim nobis, similique rem laboriosam cupiditate atque magnam doloribus, adipisci quas perspiciatis ab reprehenderit! Ex, accusamus deleniti unde quos similique exercitationem non? Tempore facilis rerum animi cumque recusandae expedita sit molestiae quisquam veritatis sunt officiis id eveniet obcaecati nihil, minima natus illum doloribus consectetur at, ad ducimus praesentium saepe velit. Eius aspernatur nobis reprehenderit dolorum perspiciatis voluptatem assumenda quae magni.</p>
+                </div>
+                <div class="infoimg">
+                    <img class="img-item" src="/images/laptop.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="bd dj dfc fade-down" style="padding: 1rem;" id="stipendien">   
+        <div class="box block" >
+            <div class="infoblock">
+                <div class="infoimg">
+                    <img class="img-item" src="/images/laptop.jpg" alt="">
+                </div>
+                <div class="infotext">
+                    <div class="infotitle" >
+                        <h3>STIPENDIEN</h3>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing dignissimos enim nobis, similique rem laboriosam cupiditate atque magnam doloribus, adipisci quas perspiciatis ab reprehenderit! Ex, accusamus deleniti unde quos similique exercitationem non? Tempore facilis rerum animi cumque recusandae expedita sit molestiae quisquam veritatis sunt officiis id eveniet obcaecati nihil, minima natus illum doloribus consectetur at, ad ducimus praesentium saepe velit. Eius aspernatur nobis reprehenderit dolorum perspiciatis voluptatem assumenda quae magni.</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <section class="bd dfc dj fade-down" id="stipendium">   
+        <div class="box" style="display:flex; align-items: center; text-align:center; font-size: 1.5rem; padding: 1rem; color:var(--theme); ">
+            <h3 id="beratung">BERATUNG</h3> 
+        </div>
+    </section>
+    <div class="bd dfc dj fade-down">   
+        <div class="" style="background-color: transparent;">
+            <div class="beratunggrid" >
+                <div class="beratungblock">
+                    <div class="beratunginfotext">
+                        <div class="" style="display:flex; align-items: center; text-align:center; font-size: 1.5rem; padding: 1.5rem 0rem; color:var(--theme);">
+                            <h3>sozial</h3> 
+                        </div>
+                        <p>Lorem ipsum nobis, similique rem laboriosam rerum animi cumque recusandae expedita sit molestiae quisquam veritatis sunt officiis id eveniet obcaecati nihil, minima natus illum doloribus consectetur at, ad ducimus praesentium saepe velit. Eius aspernatur nobis reprehenderit dolorum perspiciatis voluptatem assumenda quae magni.</p>
+                    </div>
+                    <div class="infoimg2" >
+                        <img class="b-img-item" src="/images/Beratung_2.png" alt="">
+                    </div>
+                </div>
+                <div class="beratungblock">
+                    <div class="beratunginfotext">
+                        <div class="" style="display:flex; align-items: center; text-align:center; font-size: 1.5rem; padding: 1.5rem 0rem; color:var(--theme);">
+                            <h3>integration</h3> 
+                        </div>
+                        <p>Lorem ipsum nobis, similique rem laboriosam rerum animi cumque recusandae expedita sit molestiae quisquam veritatis sunt officiis id eveniet obcaecati nihil, minima natus illum doloribus consectetur at, ad ducimus praesentium saepe velit. Eius aspernatur nobis reprehenderit dolorum perspiciatis voluptatem assumenda quae magni.</p>
+                        </div>
+                    <div class="infoimg2">
+                        <img class="b-img-item" src="/images/integration_6.jpg" alt="">
+                    </div>
+                </div>
+                <div class="beratungblock">
+                    <div class="beratunginfotext">
+                        <div class="" style="display:flex; align-items: center; text-align:center; font-size: 1.5rem; padding: 1.5rem 0rem; color:var(--theme);">
+                            <h3>Asyl-und Migration</h3> 
+                        </div>
+                        <p>Lorem ipsum nobis, similique rem laboriosam rerum animi cumque recusandae expedita sit molestiae quisquam veritatis sunt officiis id eveniet obcaecati nihil, minima natus illum doloribus consectetur at, ad ducimus praesentium saepe velit. Eius aspernatur nobis reprehenderit dolorum perspiciatis voluptatem assumenda quae magni.</p></div>
+                    <div class="infoimg2" >
+                        <img class="b-img-item" src="/images/migration_3.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <section class="bd dfc dj fade-down" >   
+        <div class="box" style="display:flex; align-items: center; text-align:center; font-size: 1.5rem; padding: 1rem; color:var(--theme); ">
+            <h3 id="rater">RATING</h3> 
+        </div>
+    </section>
+
+    <section class="bd dj dfc fade down" >
+        <%- include("../Partial/rating.ejs") %>
+    </section>
+
+    <section class="bd dfc dj fade-down" >   
+        <div class="box" style="display:flex; align-items: center; text-align:center; font-size: 1.5rem; padding: 1rem; color:var(--theme);">
+            <h3 id="comments">COMMENTS</h3> 
+        </div>
+    </section>
+
+    <section class="bd dj dfc fade-down">
+        <%- include("../Partial/comment.ejs") %>
+    </section>
+    
+    
+    <section class="bl dfc dj fade-down" >   
+        <div class="box" style="display:flex; align-items: center; text-align:center; font-size: 1.5rem; padding: 1rem;  color:var(--theme);">
+            <h3 id="stats">STAT</h3> 
+        </div>
+    </section>
+    <section class="bl dj dfc fade-down" style="padding-bottom: 1.5rem;">
+        <%- include("../Partial/counter.ejs") %>
+    </section>
+
+    <!--
+    <section class="bl dj">
+        <div class="box" style="background-color: blueviolet;"> 
+            <h1>Event</h1>
+            <h2></h2>
+        </div>
+    </section>
+    -->
+
+    <!--footer-->
+    <footer class="footer">
+        <%- include("../Partial/footer.ejs") %>
+    </footer>
+   
+    <%- include("../Partial/modal-post.ejs") %>
+    <script>
+        document.querySelectorAll( 'oembed[url]' ).forEach( element => {
+            // Create the <a href="..." class="embedly-card"></a> element that Embedly uses
+            // to discover the media.
+            const anchor = document.createElement( 'a' );
+    
+            anchor.setAttribute( 'href', element.getAttribute( 'url' ) );
+            anchor.className = 'embedly-card';
+    
+            element.appendChild( anchor );
+        } );
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+
+<%if(message?.length > 0){%>
+<div class="alert alert-success mt-1 mb-1" role="alert">
+    <small style="color: rgb(253, 255, 253)">
+        <%=message%>
+    </small>
+</div>
+<%}%>
+<%if(warning?.length > 0){%>
+<div class="alert alert-light mb-1 mt-1" role="alert">
+    <small style="color: rgb(253, 86, 8)">
+    <%=warning%>
+    </small>
+</div>
+<%}%>
