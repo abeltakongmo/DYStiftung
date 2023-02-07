@@ -56,12 +56,12 @@ app.use(cors())
 
 //app.use(morgan('dev'))
 app.use(express.urlencoded({extended: false}));
-app.use(express.static('public'));
+app.use(express.static('Public'));
 app.use(express.static('hbs'));
-app.use('/users', express.static(__dirname +'public/users'));
-app.use('/css', express.static(__dirname +'public/css'));
-app.use('/images', express.static(__dirname +'public/images'));
-app.use('/files', express.static(__dirname +'public/files'));
+app.use('/users', express.static(__dirname +'Public/users'));
+app.use('/css', express.static(__dirname +'Public/css'));
+app.use('/images', express.static(__dirname +'Public/images'));
+app.use('/files', express.static(__dirname +'Public/files'));
 app.use('/views', express.static(__dirname +'views/JS'));
 
 
