@@ -18,9 +18,10 @@
     <title>DYStiftung</title>
 </head>
 <body>
-    <script src="/ckeditor/ckeditor.js" ></script>
+    
      <!--    <link rel="stylesheet" href="/css/navbar.css"> -->
      <header class="bl header" data-servername="<%=servername%>">
+        <script src="/ckeditor/ckeditor.js" ></script>
         <%- include("../Partial/nav.ejs") %>
      </header>
 
@@ -307,8 +308,9 @@
     <footer class="footer">
         <%- include("../Partial/footer.ejs") %>
     </footer>
-   
+    
     <%- include("../Partial/modal-post.ejs") %>
+    
     <script>
         document.querySelectorAll( 'oembed[url]' ).forEach( element => {
             // Create the <a href="..." class="embedly-card"></a> element that Embedly uses

@@ -82,14 +82,14 @@
                 const tmp = document.getElementById('template-slider').content.cloneNode(true)
                 tmp.querySelector('.img-pub').setAttribute('href', sl.link)
                 tmp.querySelector('.img-pub').setAttribute('target', sl.target)
-                tmp.querySelector('.img-item').setAttribute('src', sl.image)
+                tmp.querySelector('.img-item').setAttribute('src', servername + '/'+sl.image)
                 container.append(tmp)
             }
             else if(sl.city.includes('Ingolstadt')){
                 const tmp = document.getElementById('template-slider').content.cloneNode(true)
                 tmp.querySelector('.img-pub').setAttribute('href', sl.link)
                 tmp.querySelector('.img-pub').setAttribute('target', sl.target)
-                tmp.querySelector('.img-item').setAttribute('src', sl.image)
+                tmp.querySelector('.img-item').setAttribute('src', servername + '/'+sl.image)
                 container.append(tmp)
             }
         }
