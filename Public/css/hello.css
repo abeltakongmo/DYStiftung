@@ -112,9 +112,13 @@ section{
   padding-top: 0rem; 
   color:var(--theme);
 }
-.infoimg{
+.blockimg{
   flex:1;
   padding: 1rem ;
+  background-color: transparent;
+}
+.infoimg{
+  flex:1;
   background-color: transparent;
 }
 .infoimg2{
@@ -159,7 +163,10 @@ section{
   html{
     font-size: 55%;
  }
-
+ .p{
+  letter-spacing: 1px;
+  line-height: 2rem;
+}
  .beratunggrid{
   display: grid;
   grid-template-columns: repeat(1, 1fr);

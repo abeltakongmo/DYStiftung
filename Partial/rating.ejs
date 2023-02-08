@@ -5,6 +5,7 @@
                 <div style="padding: 1rem; ">
                     <p style="color: #ccc; font-size: 15px; ">Geben Sie mehrere Sterne, Wenn Sie mit der Leistung von Frau Yomi zufrieden sind.</p>
                 </div>
+                <!--
                 <div class="">
                     <div class="ratingstar">
                         <div class="stars " onclick="addstar('gold')">
@@ -13,7 +14,6 @@
                         <div class="stars "  onclick="removestar('var(--theme)')" >
                             <i class="fas fa-star fade-zoom" id="start6" style="color:var(--theme);"></i>
                         </div>
-                       
                     </div>
                     <div class="starslist" style="background-color:#fff">
                         <i class="fas fa-star" id="star1" ></i>
@@ -28,7 +28,29 @@
                         <span><i class="fas fa-star"  style="color: gold;" ></i></span>
                     </div>
                 </div>
-               
+                -->
+                <div class="">
+                    <div class="ratingstar" style="padding: 1rem;">
+                        <div class="" >
+                            <i class="fas fa-star fade-zoom"  id="start0" style="color:gold"></i>
+                        </div>
+                        <div class="" >
+                            <i class="fas fa-star fade-zoom" id="start6" style="color:var(--theme);"></i>
+                        </div>
+                    </div>
+                    <div class="starslist" style="display:flex; justify-content: space-around; background-color:#fff; align-items: center; padding: 2rem 0rem;">
+                        <div class="" onclick="submitformrating()"><i class="fas fa-star st" onmouseover="staron(1)"  id="star1" ></i></div>
+                        <div class="" onclick="submitformrating()"><i class="fas fa-star st" onmouseover="staron(2)" id="star2" ></i></div>
+                        <div class="st" onclick="submitformrating()"><i class="fas fa-star st" onmouseover="staron(3)"  id="star3" ></i></div>
+                        <div class="st" onclick="submitformrating()"><i class="fas fa-star st" onmouseover="staron(4)"  id="star4" ></i></div>
+                        <div class="st" onclick="submitformrating()"><i class="fas fa-star st" onmouseover="staron(5)"  id="star5" ></i></div>
+                    </div>
+                   
+                    <div class="scorerate" >
+                        <h3 id="starnumber" style="color:var(--theme); padding: 0rem 1rem;"></h3>
+                        <span><i class="fas fa-star"  style="color: gold;" ></i></span>
+                    </div>
+                </div>
                 <script>
                     var star = 0
                     function initrating(color, st){
@@ -37,6 +59,17 @@
                         }
                         document.getElementById('starnumber').innerHTML = st
                     }
+                    function staron(color){
+                        for(ic = 1; ic <= 5; ic++){
+                            document.getElementById('star'+ic).style.color = 'var(--theme)'
+                        }
+                        for(ic = 1; ic <= color; ic++){
+                            document.getElementById('star'+ic).style.color = 'gold'
+                        }
+                        document.getElementById('starnumber').innerHTML = color
+                        star = color
+                    }
+                    
                     function addstar(color){
                         if(star < 5) {
                             star = star + 1 ; 
@@ -96,9 +129,9 @@
                     }
                 
                 </script>
-                <div class="formsubmit" id="btn" style="padding: 1rem 0rem; width: 100%;">
+                <!--<div class="formsubmit" id="btn" style="padding: 1rem 0rem; width: 100%;">
                     <button type="submit" onclick="submitformrating()"  id="submitformcreate"  class="btn-first" >senden</button>
-                </div>
+                </div>-->
                 <div style="padding: 1rem; ">
                     <p style="color: #ccc; font-size: 15px; ">Danke für deine Bewertung.</p>
                 </div>
