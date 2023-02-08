@@ -56,6 +56,9 @@
                                 <p class="p-post-content" id="post-content">
                                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam obcaecati nostrum deserunt natus eum dolorem nulla ipsum repellendus, aperiam impedit alias vero velit ducimus saepe mollitia deleniti! Provident asperiores fuga repudiandae odit rem veritatis totam aliquid possimus consequuntur facere amet, quasi enim dicta itaque eligendi iusto quo harum accusantium ea tempora dolor. Enim nemo dolorum, vero accusantium incidunt qui totam! Similique laborum cumque voluptate laboriosam fugiat sit ab harum corrupti enim numquam accusamus, repudiandae reprehenderit omnis, obcaecati voluptatibus! Unde corporis exercitationem, magnam tempore omnis at sequi itaque a vero deleniti reiciendis qui maxime labore dolor cupiditate quasi rerum ipsum quas?
                                 </p>
+                                <div  style="display:flex; justify-content: center; text-align: center; padding: 1rem; ">
+                                    <span class="btn-more">mehr</span> 
+                                </div>
                             </span>
                         </div>
                     </div>
@@ -139,7 +142,10 @@
                         postblockindex[ind] = 'post-block'+ ind
                         const tmp = document.getElementById('template-post').content.cloneNode(true)
                         tmp.getElementById('post-name').innerHTML = post.name
-                        tmp.getElementById('post-content').innerHTML = post.text
+                        shorttext = post.text
+                        console.log(post.text);
+                        if(post.text.length > 69) shorttext = post.text.substring(1, 70)
+                        tmp.getElementById('post-content').innerHTML = shorttext
                         tmp.getElementById('post-type').innerHTML = post.type
                         tmp.getElementById('post-date').innerHTML = post.date
                         ptimage = servername + post?.image
@@ -150,7 +156,7 @@
                         tmp.querySelector('.grid-item').setAttribute ('id', postblockindex[ind])
                         tmp.getElementById(contentimgindex[ind]).setAttribute("src", ptimage)
                         container.append(tmp)
-                        document.getElementById(postblockindex[ind]).addEventListener('click', (event)=>{event.preventDefault(); console.log('modal'+ind); showpost(post)})
+                        document.getElementById(postblockindex[ind]).addEventListener('click', (event)=>{event.preventDefault(); showpost(post)})
                     }
                     
                 }
@@ -168,7 +174,9 @@
                         postblockindex[ind] = 'post-block'+ ind
                         const tmp = document.getElementById('template-post').content.cloneNode(true)
                         tmp.getElementById('post-name').innerHTML = post.name
-                        tmp.getElementById('post-content').innerHTML = post.text
+                        shorttext = post.text
+                        if(post.text.length > 69) shorttext = post.text.substring(1, 70)
+                        tmp.getElementById('post-content').innerHTML = shorttext
                         tmp.getElementById('post-type').innerHTML = post.type
                         tmp.getElementById('post-date').innerHTML = post.date
                         ptimage = servername + post?.image
@@ -196,7 +204,7 @@
                     <div class="infotitle">
                         <h3>STIFTUNG</h3> 
                     </div>
-                    <p>Lorem ipsum dolor sit amet, facere neque,  eius commodi laborum officiis mollitia modi nulla dignissimos enim nobis, similique rem laboriosam cupiditate atque magnam doloribus, adipisci quas perspiciatis ab reprehenderit! Ex, accusamus deleniti unde quos similique exercitationem non? Tempore facilis rerum animi cumque recusandae expedita sit molestiae quisquam veritatis sunt officiis id eveniet obcaecati nihil, minima natus illum doloribus consectetur at, ad ducimus praesentium saepe velit. Eius aspernatur nobis reprehenderit dolorum perspiciatis voluptatem assumenda quae magni.</p>
+                    <p class="p-post-content">Lorem ipsum dolor sit amet, facere neque,  eius commodi laborum officiis mollitia modi nulla dignissimos enim nobis, similique rem laboriosam cupiditate atque magnam doloribus, adipisci quas perspiciatis ab reprehenderit! Ex, accusamus deleniti unde quos similique exercitationem non? Tempore facilis rerum animi cumque recusandae expedita sit molestiae quisquam veritatis sunt officiis id eveniet obcaecati nihil, minima natus illum doloribus consectetur at, ad ducimus praesentium saepe velit. Eius aspernatur nobis reprehenderit dolorum perspiciatis voluptatem assumenda quae magni.</p>
                 </div>
                 <div class="blockimg dfc">
                     <div class="infoimg">
@@ -219,7 +227,7 @@
                     <div class="infotitle" >
                         <h3>STIPENDIEN</h3>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing dignissimos enim nobis, similique rem laboriosam cupiditate atque magnam doloribus, adipisci quas perspiciatis ab reprehenderit! Ex, accusamus deleniti unde quos similique exercitationem non? Tempore facilis rerum animi cumque recusandae expedita sit molestiae quisquam veritatis sunt officiis id eveniet obcaecati nihil, minima natus illum doloribus consectetur at, ad ducimus praesentium saepe velit. Eius aspernatur nobis reprehenderit dolorum perspiciatis voluptatem assumenda quae magni.</p>
+                    <p class="p-post-content">Lorem ipsum dolor sit amet, consectetur adipisicing dignissimos enim nobis, similique rem laboriosam cupiditate atque magnam doloribus, adipisci quas perspiciatis ab reprehenderit! Ex, accusamus deleniti unde quos similique exercitationem non? Tempore facilis rerum animi cumque recusandae expedita sit molestiae quisquam veritatis sunt officiis id eveniet obcaecati nihil, minima natus illum doloribus consectetur at, ad ducimus praesentium saepe velit. Eius aspernatur nobis reprehenderit dolorum perspiciatis voluptatem assumenda quae magni.</p>
                 </div>
                 
             </div>
@@ -239,7 +247,7 @@
                         <div class="" style="display:flex; align-items: center; text-align:center; font-size: 1.5rem; padding: 1.5rem 0rem; color:var(--theme);">
                             <h3>sozial</h3> 
                         </div>
-                        <p>Lorem ipsum nobis, similique rem laboriosam rerum animi cumque recusandae expedita sit molestiae quisquam veritatis sunt officiis id eveniet obcaecati nihil, minima natus illum doloribus consectetur at, ad ducimus praesentium saepe velit. Eius aspernatur nobis reprehenderit dolorum perspiciatis voluptatem assumenda quae magni.</p>
+                        <p class="p-post-content">Lorem ipsum nobis, similique rem laboriosam rerum animi cumque recusandae expedita sit molestiae quisquam veritatis sunt officiis id eveniet obcaecati nihil, minima natus illum doloribus consectetur at, ad ducimus praesentium saepe velit. Eius aspernatur nobis reprehenderit dolorum perspiciatis voluptatem assumenda quae magni.</p>
                     </div>
                     <div class="infoimg2" >
                         <img class="b-img-item" src="/images/details.jpg" alt="">
@@ -250,7 +258,7 @@
                         <div class="" style="display:flex; align-items: center; text-align:center; font-size: 1.5rem; padding: 1.5rem 0rem; color:var(--theme);">
                             <h3>integration</h3> 
                         </div>
-                        <p>Lorem ipsum nobis, similique rem laboriosam rerum animi cumque recusandae expedita sit molestiae quisquam veritatis sunt officiis id eveniet obcaecati nihil, minima natus illum doloribus consectetur at, ad ducimus praesentium saepe velit. Eius aspernatur nobis reprehenderit dolorum perspiciatis voluptatem assumenda quae magni.</p>
+                        <p class="p-post-content">Lorem ipsum nobis, similique rem laboriosam rerum animi cumque recusandae expedita sit molestiae quisquam veritatis sunt officiis id eveniet obcaecati nihil, minima natus illum doloribus consectetur at, ad ducimus praesentium saepe velit. Eius aspernatur nobis reprehenderit dolorum perspiciatis voluptatem assumenda quae magni.</p>
                         </div>
                     <div class="infoimg2">
                         <img class="b-img-item" src="/images/social.jpg" alt="">
@@ -261,7 +269,7 @@
                         <div class="" style="display:flex; align-items: center; text-align:center; font-size: 1.5rem; padding: 1.5rem 0rem; color:var(--theme);">
                             <h3>Asyl-und Migration</h3> 
                         </div>
-                        <p>Lorem ipsum nobis, similique rem laboriosam rerum animi cumque recusandae expedita sit molestiae quisquam veritatis sunt officiis id eveniet obcaecati nihil, minima natus illum doloribus consectetur at, ad ducimus praesentium saepe velit. Eius aspernatur nobis reprehenderit dolorum perspiciatis voluptatem assumenda quae magni.</p></div>
+                        <p class="p-post-content">Lorem ipsum nobis, similique rem laboriosam rerum animi cumque recusandae expedita sit molestiae quisquam veritatis sunt officiis id eveniet obcaecati nihil, minima natus illum doloribus consectetur at, ad ducimus praesentium saepe velit. Eius aspernatur nobis reprehenderit dolorum perspiciatis voluptatem assumenda quae magni.</p></div>
                     <div class="infoimg2" >
                         <img class="b-img-item" src="/images/tente.jpg" alt="">
                     </div>

@@ -65,9 +65,17 @@
     box-shadow: var(--shadow);
     border: none;
   }
-
+  .btn-more{
+    padding: 0.5rem 2rem;
+    color: #fff;
+    background-color: var(--theme);
+    box-shadow: var(--shadow);
+    border-radius: 5px;
+    border: none;
+  }
   .btn-first:hover,
   .btn-second:hover,
+  .btn-more:hover,
   .btn-thrid:hover{
     box-shadow: none;
     background-color: var(--sombre);
