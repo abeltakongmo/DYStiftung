@@ -144,7 +144,7 @@
                         tmp.getElementById('post-name').innerHTML = post.name
                         shorttext = post.text
                         console.log(post.text);
-                        if(post.text.length > 69) shorttext = post.text.substring(1, 70)
+                        if(post.text.length > 99) shorttext = post.text.substring(1, 100)
                         tmp.getElementById('post-content').innerHTML = shorttext
                         tmp.getElementById('post-type').innerHTML = post.type
                         tmp.getElementById('post-date').innerHTML = post.date
@@ -175,7 +175,7 @@
                         const tmp = document.getElementById('template-post').content.cloneNode(true)
                         tmp.getElementById('post-name').innerHTML = post.name
                         shorttext = post.text
-                        if(post.text.length > 69) shorttext = post.text.substring(1, 70)
+                        if(post.text.length > 99) shorttext = post.text.substring(1, 100)
                         tmp.getElementById('post-content').innerHTML = shorttext
                         tmp.getElementById('post-type').innerHTML = post.type
                         tmp.getElementById('post-date').innerHTML = post.date
