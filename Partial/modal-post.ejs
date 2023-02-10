@@ -28,7 +28,7 @@
                     </div>
                     <div class="formline-profile" id="description" >
                         <label for="description" class=""></label>
-                        <span ><p class="p-post-content"></p></span>
+                        <span ><p class="p-post-content txt" ></p></span>
                     </div>
                     <button type="submit"  onclick="openspendenModal()"  class="btn-thrid done" >spenden</button>
                 </div>
@@ -53,13 +53,13 @@
     
     // Open
     async function openModalvpoint(point) {
-        console.log(point);
+        //console.log(point);
        
         servername = document.querySelector('.header').dataset.servername
         pointname = point.name
         //vpointmodal.querySelector('.modal-title').innerHTML = `<a href="/basecamp/${point.ownerid}">${point.name}</a>`
         vpointmodal.querySelector('.modal-title').innerHTML = point.name
-        vpointmodal.querySelector('.text').innerHTML = point.text
+        vpointmodal.querySelector('.txt').innerHTML = point.text
         vpointmodal.querySelector('.type').innerHTML = point.type;
         vpointmodal.querySelector('.date').innerHTML = point.date;
         //vpointmodal.querySelector('.done').addEventListener('click', ()=> {event.preventDefault(); subscribes();});

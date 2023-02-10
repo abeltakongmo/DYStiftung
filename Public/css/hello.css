@@ -132,7 +132,7 @@ section{
   line-height: 2rem;
 }
 .b-img-item{
-  height: 400px;
+  height: 300px;
   object-fit: content;
   overflow: hidden;
   width: 100%;

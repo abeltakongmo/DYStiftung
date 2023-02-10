@@ -1,3 +1,6 @@
+.footerblock{
+    padding: 1rem;
+}
 .footer{
     background-color: var(--theme);
     position:relative;
@@ -15,7 +18,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10rem;
-    text-align: center;
+    text-align: cleftenter;
 }
 
 .f-item{
@@ -25,7 +28,6 @@
     color: #fff;
     font-size: 20px;
     font-weight: 700;
-    padding: 5px;
     padding-bottom: 20px;
 }
 .f-item i{
@@ -40,16 +42,29 @@
     margin: 0px;
     color:#ddd
 }
-
+.follow{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-right: 2rem;
+}
+.follow a{
+    padding-right: 2rem;
+}
+.f-block{
+    display: flex;
+    justify-content: flex-start;
+    padding:  0.5rem;
+}
 .btn-social{
     text-align: center;
 }
 .btn-social i{
-    height: 3rem;
-    width: 3rem;
+    height: 1.5rem;
+    width: 1.5rem;
     border-radius: 50%;
-    line-height: 3rem;
-    font-size: 2rem;
+    line-height: 1.5rem;
+    font-size: 1rem;
     background-color: var(--theme);
     color: #fff;
 }
@@ -92,6 +107,7 @@ li{
         height: auto;
         overflow: hidden;
         padding: 1rem;
+        align-items: unset;
     }
 
     .footeritem{
@@ -115,6 +131,9 @@ li{
     }
     .f-item{
         padding: 1rem 0rem;
+    }
+    .f-block{
+        font-size: 1.5rem;
     }
     .copyright {
         font-size: 1rem;
