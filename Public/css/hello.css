@@ -75,17 +75,21 @@ section{
 
 .beratunggrid{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
 }
 .beratungblock{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0rem 2rem;
+  padding: 1rem 2rem;
   background-color: #fff;
   border-radius: 5px;
   border-radius: 1rem;
   margin: 1rem;
+}
+.b-block{
+  display: flex; 
+  justify-content: space-between;
 }
 .beratunginfotext{
   flex:1;
@@ -120,19 +124,21 @@ section{
 .infoimg{
   flex:1;
   background-color: transparent;
+  height: auto;
 }
 .infoimg2{
   flex:1;
-  padding: 1.5rem 0rem;
   background-color: transparent;
+
 }
 
 .p-post-content{
   letter-spacing: 0.2px;
   line-height: 2rem;
+  padding: 0rem .5rem;
 }
 .b-img-item{
-  height: 300px;
+  height: 400px;
   object-fit: content;
   overflow: hidden;
   width: 100%;
@@ -172,7 +178,20 @@ section{
   grid-template-columns: repeat(1, 1fr);
   gap: .5rem
 }
+.b-block{
+  flex-direction: column;
+}
+.beratungblock{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
+  padding: 0rem 2rem;
+  background-color: #fff;
+  border-radius: 5px;
+  border-radius: 1rem;
+  margin: 1rem;
+}
 
  .box{width: 100%;}
  .header .link-btn{
@@ -192,6 +211,9 @@ section{
   .infoimg{
     padding: 1rem ;
     box-shadow: none;
+  }
+  .infoimg2{
+    padding: 1.5rem 0rem;
   }
   .infotext {
     flex:0;
