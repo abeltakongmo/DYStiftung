@@ -44,7 +44,7 @@ section{
 .block{
   border-radius: 1rem;
   background-color: #fff;
-  margin: 2rem;
+  margin: 1rem 2rem;
 }
 .menu-item{
   display: grid;
