@@ -136,6 +136,7 @@ section{
   letter-spacing: 0.2px;
   line-height: 2rem;
   padding: 0rem .5rem;
+  text-align: center;
 }
 .b-img-item{
   height: 400px;
