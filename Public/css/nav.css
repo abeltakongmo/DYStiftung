@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    text-transform: capitalize;
+    text-transform: initial;
     text-decoration: none;
 }
 
