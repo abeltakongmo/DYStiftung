@@ -1,0 +1,92 @@
+  <div id="modal-comment" class="modal">
+    <div class="modal-content">
+      <div class="modal-header dja">
+        <h2>Schreib ein Kommentar </h2>
+        <span class="close" id="close-comment">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="modal-block">
+          <div id="formcreate"  class="info-block"  style="border: 1px solid #ddd;padding: 1rem 0rem;">
+            <div class="df" >
+              <div class="commentformblock df"> 
+                  <div class="" style="padding: 0rem 1rem;">
+                      <h5 style="padding: 1rem;">Dein Name</h5>
+                      <input class="name ihv" style="width:100%; "  max="50" placeholder="max mustermann" id="name" >
+                  </div>
+                  
+                  <div class="ratingline" id="ratingdescription" >
+                      <h5 style="padding: 1rem;">Dein Kommentar</h5>
+                      <textarea class="form-control ihv textareacomment" style="font-size: 0.5rem;" id="feedback"  rows="7" name="feedback" max="500" placeholder="Schreib hier dein Kommentar..." ></textarea>
+                  </div>
+                  <div class="formsubmit" id="btn" style="padding: 1rem 0rem; width: 100%;">
+                      <button type="submit" onclick="submitformcomment()"  id="submitformcreate"  class="btn-more" >senden</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+  
+  <script>
+       var editorcomment;
+       const modalcomment = document.querySelector('#modal-comment');
+       ClassicEditor
+       .create(modalcomment.querySelector('.textareacomment'),{
+                    mediaEmbed: {
+                        previewsInData:true
+                    },
+                })
+       .then( value => {
+        editorcomment = value})
+       .catch(err => console.log(err))
+       
+        //const modalBtn = document.querySelector('#modal-btn');
+        const closecommentBtn = document.querySelector('#close-comment');
+
+        // Events
+        //modalBtn.addEventListener('click', openspendenModal);
+        closecommentBtn.addEventListener('click', closecommentModal);
+        //window.addEventListener('click', outsideClick);
+
+        // Open
+        function opencommentModal() {
+          modalcomment.style.display = 'block';
+        }
+
+        // Close
+        function closecommentModal() {
+          modalcomment.style.display = 'none';
+        }
+        async function submitformcomment(){
+          event.preventDefault()
+          if(editorcomment.getData().length == 0) {alert('Schreiben Sie Ihr Kommentar'); return;}
+          if(!modalcomment.querySelector('.name').value) {alert('Schreiben Sie Ihre Name'); return;}
+          if(!modalcomment.querySelector('.name').value.length > 20) {alert('Ihr Name ist länger als 20 Buchstaben!'); return;}
+          if(!editorcomment.getData().length > 500) {alert('Ihr Kommentar ist länger als 500 Buchstaben!'); return;}
+          let fd = new FormData();
+          fd.append("name", modalcomment.querySelector('.name').value);
+          fd.append("text", editorcomment.getData());
+          endpoint = servername+'/API/comment'
+          const formData = new URLSearchParams(fd);
+          ret = await fetch( endpoint,
+          {   method: 'POST',
+              mode : 'same-origin',
+              credentials: 'same-origin',
+              body : formData
+          })
+          .then(function(response) {
+          return response.json()
+          }).then(async function(ret) {
+              if(ret.success){alert('comment added!');
+
+          }
+              else{alert(ret.message); console.log(ret.message);}
+              closecommentModal()
+          });
+          loadcomments('comments-output')
+      }
+  </script>

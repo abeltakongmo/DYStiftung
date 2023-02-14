@@ -426,7 +426,8 @@
 
     <section class="bd dfc dj fade-down" >   
         <div class="box" style="display:flex; align-items: center; text-align:center; font-size: 1.5rem; padding: 1rem; color:var(--theme);">
-            <h3 id="comments">COMMENTS</h3> 
+            <div class="btn-more" onclick="opencommentModal()" style="margin: 1rem 0rem"> Klick hier zu kommentieren!</div>
+            <h3 id="comments">KOMMENTARE</h3>
         </div>
     </section>
 
@@ -437,7 +438,7 @@
     
     <section class="bl dfc dj fade-down" >   
         <div class="box" style="display:flex; align-items: center; text-align:center; font-size: 1.5rem; padding: 1rem;  color:var(--theme);">
-            <h3 id="stats">STAT</h3> 
+            <h3 id="stats">INFORMATION</h3> 
         </div>
     </section>
     <section class="bl dj dfc fade-down" style="padding-bottom: 1.5rem;">
@@ -458,6 +459,7 @@
         <%- include("../Partial/footer.ejs") %>
     </footer>
     <script src="/ckeditor/ckeditor.js" ></script>
+    <%- include("../Partial/modal-comment.ejs") %> 
     <%- include("../Partial/modal-spenden.ejs") %> 
     <%- include("../Partial/modal-post.ejs") %>
     

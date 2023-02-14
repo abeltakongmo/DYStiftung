@@ -71,6 +71,7 @@
     background-color: var(--theme);
     box-shadow: var(--shadow);
     border-radius: 5px;
+    cursor: pointer;
     border: none;
   }
   .btn-first:hover,

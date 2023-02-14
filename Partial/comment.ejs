@@ -15,6 +15,7 @@
                     </div>
                 </div>
             </template>
+            <!--
             <div class="df" >
                 <div class="commentformblock df"> 
                     <div class="" style="padding: 0rem 1rem;">
@@ -36,8 +37,13 @@
                     <button type="submit" onclick="loadmorecomment()"  id="submitformcreate"  class="btn-more" >mehr</button>
                 </div>
             </div>
-            
-            
+            -->
+            <div class="df" >
+                <div class="comment-grid" id="comments-output">
+            </div>
+            <div class="formsubmit" id="btn" style="padding: 1rem 0rem;text-align: center; justify-content: center;">
+                <button type="submit" onclick="loadmorecomment()"  id="submitformcreate"  class="btn-more" >mehr</button>
+            </div>
             <script>
                 let comments = [
                     {
@@ -54,43 +60,21 @@
                         content:'i appreciate the menu 3. It is great',
                         date: '3 days ago'
                     },
+                    {
+                        _id: 3,
+                        firstname:'Rina',
+                        image:'/images/profile.png',
+                        content:'i appreciate the menu 3. It is great',
+                        date: '3 days ago'
+                    },
                 ]
                 
-                async function submitformcomment(){
-                    event.preventDefault()
-                    console.log('comment')
-                    if(!document.querySelector('#feedback').value) {alert('comment is not defined!'); return;}
-                    if(!document.querySelector('.name').value) {alert('name is not defined!'); return;}
-                    if(!document.querySelector('.name').value.length > 20) {alert('enter name is too long!'); return;}
-                    if(!document.querySelector('#feedback').value.length > 500) {alert('enter text is too long!'); return;}
-                    let fd = new FormData();
-                    fd.append("name", document.querySelector('.name').value);
-                    fd.append("text", document.querySelector('#feedback').value);
-                    endpoint = servername+'/API/comment'
-                    console.log(endpoint);
-                    const formData = new URLSearchParams(fd);
-                    ret = await fetch( endpoint,
-                    {   method: 'POST',
-                        mode : 'same-origin',
-                        credentials: 'same-origin',
-                        body : formData
-                    })
-                    .then(function(response) {
-                    return response.json()
-                    }).then(async function(ret) {
-                        if(ret.success){alert('comment added!');
-                    }
-                        else{alert(ret.message); console.log(ret.message);}
-                        
-                    });
-                    loadcomments('comments-output')
-                }
-
+                
                 async function getcomments(){
-                endpoint = '/API/getcomments'
-                _comments = await GetData(endpoint)
-                return _comments
-}
+                    endpoint = '/API/getcomments'
+                    _comments = await GetData(endpoint)
+                    return _comments
+                }
                 async function loadcomments(output){
                     servername = document.querySelector('.header').dataset.servername
                     ownerid = document.querySelector('.header').dataset.ownerid
@@ -102,7 +86,7 @@
 
                    
                     if(pcomments?.element >  0) {
-                        document.getElementById('comments').innerHTML = 'COMMENTS ('+pcomments?.element+')'
+                        document.getElementById('comments').innerHTML = 'KOMMENTARE ('+pcomments?.element+')'
                         for (let [ind, comment] of Object.entries(pcomments.comments)) {
                             const tmp = document.getElementById('template-comment').content.cloneNode(true)
                             tmp.querySelector('.comment-firstname').innerHTML = comment.name
