@@ -119,6 +119,8 @@ section{
   flex:1;
   padding: 1rem ;
   background-color: transparent;
+  display: flex;
+
 }
 
 .infoimg2{
@@ -176,6 +178,9 @@ section{
  .p{
   letter-spacing: 1px;
   line-height: 2rem;
+}
+.blockimg{
+  flex-direction: column-reverse;
 }
  .beratunggrid{
   display: grid;
