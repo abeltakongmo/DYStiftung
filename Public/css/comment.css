@@ -36,6 +36,8 @@
     padding: 0.5rem;
     display: flex;
     width: 100%;
+    border-bottom: 1px solid #eee;
+    margin-top: 1rem;
 }
 .comment-content{
     width: 100%;
