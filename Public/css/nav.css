@@ -126,8 +126,14 @@ header .nav-wrapper .navbar ul li:focus-within > ul,
 header .nav-wrapper .navbar ul li:hover > ul{
     display: initial;
 }
-
-
+.title{
+    color: var(--theme);
+}
+.untertitle{
+    font-size: .8rem;
+    color: #666;
+    font-weight: 500;
+}
 
 #menu-bar{
     display: none;
