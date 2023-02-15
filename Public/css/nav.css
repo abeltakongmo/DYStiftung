@@ -127,12 +127,12 @@ header .nav-wrapper .navbar ul li:hover > ul{
     display: initial;
 }
 .title{
-    color: var(--theme);
+    color: var(--sombre);
 }
 .untertitle{
     font-size: .8rem;
-    color: #666;
-    font-weight: 500;
+    color: var(--theme);
+    font-weight: 600;
 }
 
 #menu-bar{
@@ -210,5 +210,10 @@ header .nav-wrapper label{
 
     header .nav-infos{
         display: none;
+    }
+    .untertitle{
+        font-size: 1rem;
+        color: var(--sombre);
+        font-weight: 600; 
     }
 }
