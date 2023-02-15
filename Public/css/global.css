@@ -85,3 +85,10 @@
   .border-b{
     border-bottom: 1px solid #ddd;
   }
+  .bold{
+    font-weight: 600;
+  }
+  .italic{
+    font-style: italic;
+    font-weight: 600;
+  }

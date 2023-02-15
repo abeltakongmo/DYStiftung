@@ -129,13 +129,12 @@ section{
 .infoimg2{
   flex:1;
   background-color: transparent;
-
+  padding-left:1rem;
 }
-
 .p-post-content{
   letter-spacing: 0.2px;
   line-height: 2rem;
-  padding: 0rem 1rem;
+  padding: 0rem 0rem;
   text-align: justify;
 }
 .b-img-item{
@@ -225,5 +224,14 @@ section{
   }
   .beratungblock{
     margin: 0.5rem 1rem;
+  }
+  .b-img-item{
+    height: 300px;
+  }
+  .p-post-content{
+    padding: 1rem 0rem ;
+  }
+  .mob-img{
+    display: none;
   }
 }
