@@ -29,15 +29,15 @@
 }
 .comment-title{
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
 }
 .comment-profile{
-    padding: 0.5rem;
+    padding: 1rem 0.5rem;
     display: flex;
+    
     width: 100%;
     border-bottom: 1px solid #eee;
-    margin-top: 1rem;
 }
 .comment-content{
     width: 100%;
@@ -68,7 +68,7 @@
 .comment-text{
     font-size: 15px;
     color: #777;
-    
+    width: 100%;
     margin-left: 1rem;
 }
 .comment-text p{
