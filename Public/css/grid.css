@@ -21,7 +21,10 @@
     cursor: pointer;
     border: 1px solid rgb(210, 210, 247);
   }
-
+  .title-grid-item{
+    border-radius: 1rem;
+    padding: 0.5rem;
+  }
 .post-top{
     display: flex;
     justify-content: space-between;
@@ -35,10 +38,9 @@
     padding-right: 10px;
 }
 .post-content{
+
 }
-.post-content p{
-    padding: 1rem 0rem;
-}
+
 .content{
 background-color: rgb(158, 159, 218);
 justify-content: center;
