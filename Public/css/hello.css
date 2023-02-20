@@ -138,7 +138,7 @@ section{
   object-fit: cover;
 }
 .infoimg{
-  border-radius: 1rem;
+  
   overflow: hidden;
   background-color: transparent;
   height: auto;
@@ -147,6 +147,7 @@ section{
   height: 400px;
   width: 300px;
   object-fit: cover;
+  border-radius: 1rem;
 }
 .p-post-content{
   letter-spacing: 0.2px;
