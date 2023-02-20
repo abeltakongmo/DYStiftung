@@ -244,4 +244,7 @@ section{
   .mob-img{
     display: none;
   }
+  .img-item{
+    width: 100%;
+  }
 }
