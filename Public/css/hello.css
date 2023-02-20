@@ -145,7 +145,7 @@ section{
 }
 .img-item{
   height: 400px;
-  width: 100%;
+  width: 300px;
   object-fit: cover;
 }
 .p-post-content{
