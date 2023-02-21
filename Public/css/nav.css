@@ -101,6 +101,7 @@ header .nav-wrapper .navbar ul li .link-icon{
 }
 
 header .nav-wrapper .navbar ul li a:hover{
+    transition: all .5s;
     background-color: var(--theme);
     color: #fff;
 }
