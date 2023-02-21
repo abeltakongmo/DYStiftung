@@ -101,7 +101,8 @@ header .nav-wrapper .navbar ul li .link-icon{
 }
 
 header .nav-wrapper .navbar ul li a:hover{
-    border-bottom: 2px solid var(--theme);
+    background-color: var(--theme);
+    color: #fff;
 }
 
 header .nav-wrapper .navbar ul li ul{
