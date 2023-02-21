@@ -41,10 +41,25 @@ section{
   width: 100%;
 }
 
+.name{
+  font-size: 1rem;
+  padding: .5rem 0rem;
+  text-align: center;
+  color: var(--theme);
+}
+
+.iname {
+  padding:.5rem 0rem;
+  text-align: center;
+  color:#bbb;
+  font-size: 15px;
+}
+
 .block{
   border-radius: 1rem;
   background-color: #fff;
-  margin: 1rem 2rem;
+  margin: 0rem 2rem;
+  margin-top: 1rem;
 }
 .menu-item{
   display: grid;
@@ -137,12 +152,12 @@ section{
   height: 100%;
   object-fit: cover;
 }
-.infoimg{
-  
+.infoimg {
   overflow: hidden;
   background-color: transparent;
   height: auto;
 }
+
 .img-item{
   height: 400px;
   width: 300px;
@@ -179,10 +194,16 @@ section{
   letter-spacing: 1px;
   line-height: 2rem;
 }
+.iname {
+  font-size: 1.5rem;
+}
+.name{
+  font-size: 1.5rem;
+}
 .blockimg{
   flex-direction: column-reverse;
 }
- .beratunggrid{
+.beratunggrid{
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: .5rem
