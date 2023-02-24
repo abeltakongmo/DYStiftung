@@ -273,4 +273,8 @@ section{
   .img-item{
     width: 100%;
   }
+  .post-date{
+    font-size: 1rem;
+    color: var(--sombre);
+  }
 }
