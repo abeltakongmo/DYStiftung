@@ -169,13 +169,21 @@ section{
   object-fit: cover;
   border-radius: 1rem;
 }
+.para{
+  text-align: justify;
+  column-count: 1;
+  column-gap: 50px;
+  -webkit-column-count: 1;
+  -webkit-column-gap: 50px;
+  -moz-column-count: 1;
+  -moz-column-gap: 50px;
+}
 .p-post-content{
   letter-spacing: 0.2px;
   font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 2rem;
   padding: 1rem 0rem;
   color: #333;
-  text-align: justify;
 }
 @media (max-width: 991px){
     *::-webkit-scrollbar{
