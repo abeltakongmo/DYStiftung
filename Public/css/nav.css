@@ -109,7 +109,7 @@ header .nav-wrapper .navbar ul li a:hover{
 header .nav-wrapper .navbar ul li ul{
     position: absolute;
     left: 0;
-    width: 200px;
+    width: 250px;
     background-color: #fff;
     display: none;
 }
