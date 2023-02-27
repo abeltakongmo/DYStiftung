@@ -34,10 +34,10 @@
         <div class="df box">
             <div class="menu" >
                 <ul class="dja menu-item">
-                    <li><div class="param" onclick=" updatepost('output-title', 'Alle')">ALLE</div></li>
-                    <li><div class="param" onclick=" updatepost('output-title', 'Projekt')">PROJEKTE</div></li>
-                    <li><div class="param" onclick=" updatepost('output-title', 'Veranstaltung')">VERANSTALTUNGEN</div></li>
-                    <li><div class="param" onclick=" updatepost('output-title', 'Andere')">LIVE</div></li>
+                    <li onclick=" updatepost('output-title', 'Alle')"><div class="param" >ALLE</div></li>
+                    <li onclick=" updatepost('output-title', 'Projekt')"><div class="param" >PROJEKTE</div></li>
+                    <li onclick=" updatepost('output-title', 'Veranstaltung')"><div class="param" >VERANSTALTUNGEN</div></li>
+                    <li onclick=" updatepost('output-title', 'Andere')"><div class="param" >LIVE</div></li>
                 </ul>
             </div>
             <template id="template-post">
@@ -168,11 +168,13 @@
                 }
                 loadtitle('output-title')
                 async function updatepost(output, param){
+                    event.preventDefault()
                     servername = document.querySelector('.header').dataset.servername
                     container = document.getElementById(output)
                     document.getElementById(output).innerHTML = ''
                     let contentimgindex = [];
                     let postblockindex = [];
+                    posts = []
                     if(/*ret?.element ==  0*/ 1) { posts = contents} else { posts = ret?.posts }
                     posts = selectfilter( posts, param )
                     for (let [ind, post] of Object.entries(posts)) {
