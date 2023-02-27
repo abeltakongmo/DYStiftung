@@ -53,6 +53,7 @@
                         <div class="post-content">
                             <span class="post-text">
                                 <h6 id="post-name">Integration</h6>
+                                <!--
                                 <div class="">
                                     <p class="p-post-content" id="post-content">
                                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam obcaecati nostrum deserunt natus eum dolorem nulla ipsum repellendus, aperiam impedit alias vero velit ducimus saepe mollitia deleniti! Provident asperiores fuga repudiandae odit rem veritatis totam aliquid possimus consequuntur facere amet, quasi enim dicta itaque eligendi iusto quo harum accusantium ea tempora dolor. Enim nemo dolorum, vero accusantium incidunt qui totam! Similique laborum cumque voluptate laboriosam fugiat sit ab harum corrupti enim numquam accusamus, repudiandae reprehenderit omnis, obcaecati voluptatibus! Unde corporis exercitationem, magnam tempore omnis at sequi itaque a vero deleniti reiciendis qui maxime labore dolor cupiditate quasi rerum ipsum quas?
@@ -61,6 +62,7 @@
                                 <div  style="display:flex; justify-content: center; text-align: center; ">
                                     <span class="btn-read">lesen</span> 
                                 </div>
+                                -->
                             </span>
                         </div>
                     </div>
@@ -146,10 +148,9 @@
                         postblockindex[ind] = 'post-block'+ ind
                         const tmp = document.getElementById('template-post').content.cloneNode(true)
                         tmp.getElementById('post-name').innerHTML = post.name
-                        shorttext = post.text
-                        console.log(post.text);
+                        /*shorttext = post.text
                         if(post.text.length > 99) shorttext = post.text.substring(0, 100)
-                        tmp.getElementById('post-content').innerHTML = shorttext
+                        tmp.getElementById('post-content').innerHTML = shorttext*/
                         tmp.getElementById('post-type').innerHTML = post.type
                         tmp.getElementById('post-date').innerHTML = post.date
                         ptimage = servername + post?.image
