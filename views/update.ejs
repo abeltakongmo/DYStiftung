@@ -12,12 +12,19 @@
 </head>
 <body>
    <style>
-
+    .update span{
+            color: red;
+    }
+    @media (max-width: 991px){
+        .update{
+            font-size: 15px;
+        }
+    }
    </style>
    <div class="dj" style="background-color: #fff; height: 70vH;" >
         <div class="dja">
-            <div class="dfc textbit" style="color: rgb(69, 69, 158)">
-                <span><i class="fa-solid fa-fire"></i></span>
+            <div class="update dfc textbit" style="color: rgb(69, 69, 158)">
+                <span><i class="fa-solid fa-paper-plane"></i></span>
                 <h3 class=""><%=servername%> is not available. </h3> 
             </div>
         </div>
