@@ -79,10 +79,19 @@ app.use(session({
     cookie: {maxAge: 1000*60*60*24}, // 1 day
 }));
 
+
 app.all('/*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next();
+    if( process.env.UPDATE == 'ON')
+    {
+        res.render('update',{
+            servername: process.env.SERVER_URL,
+        });
+    }
+    else{
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
+        next();
+    }
 });
 
 app.use(flash());
